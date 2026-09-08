@@ -17,7 +17,7 @@ export function Footer() {
           {/* Col 1: Logo & Vision */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-orange-500/50 bg-white">
+              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-orange-500/50 bg-white shadow-xs outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10">
                 <Image
                   src="/assets/logo.png"
                   alt="Alchemist Logo"
@@ -127,11 +127,11 @@ export function Footer() {
             </h4>
             <div className="mt-4 flex flex-col gap-3 text-xs text-slate-400">
               <div className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                <MapPin strokeWidth={1.5} className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
                 <span>এসপি বাংলো গেটের বিপরীতে, আরবপুর, যশোর।</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-orange-400" />
+                <Phone strokeWidth={1.5} className="h-4 w-4 shrink-0 text-orange-400" />
                 <a
                   href="tel:+8801780616187"
                   className="font-bold text-white hover:text-orange-400"
@@ -140,7 +140,7 @@ export function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <MessageCircle className="h-4 w-4 shrink-0 text-emerald-400" />
+                <MessageCircle strokeWidth={1.5} className="h-4 w-4 shrink-0 text-emerald-400" />
                 <a
                   href="https://wa.me/8801780616187"
                   target="_blank"
@@ -154,7 +154,7 @@ export function Footer() {
 
             <button
               onClick={scrollToTop}
-              className="mt-6 inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800 px-3.5 py-2 text-xs font-semibold text-slate-200 transition-colors hover:border-orange-500 hover:text-white"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800 ps-3.5 pe-4 py-2 text-xs font-semibold text-slate-200 transition-[border-color,color,transform] duration-150 ease-out active:scale-[0.96] hover:border-orange-500 hover:text-white"
             >
               <ArrowUp className="h-3.5 w-3.5 text-orange-400" />
               <span>উপরে ফিরে যান (Top)</span>

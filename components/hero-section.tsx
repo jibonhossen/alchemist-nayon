@@ -84,19 +84,19 @@ export function HeroSection() {
             {/* Key Value Points */}
             <div className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
               <div className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
+                <CheckCircle2 strokeWidth={1.5} className="h-4 w-4 shrink-0 text-emerald-600" />
                 <span>বোর্ড বইয়ের প্রতিটি কনসেপ্ট ক্লিয়ারিং</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
+                <CheckCircle2 strokeWidth={1.5} className="h-4 w-4 shrink-0 text-emerald-600" />
                 <span>ইন্টারেক্টিভ ডিজিটাল স্মার্ট বোর্ড ক্লাস</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
+                <CheckCircle2 strokeWidth={1.5} className="h-4 w-4 shrink-0 text-emerald-600" />
                 <span>অধ্যায়ভিত্তিক প্র্যাকটিস শিট ও লেকচার নোট</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
+                <CheckCircle2 strokeWidth={1.5} className="h-4 w-4 shrink-0 text-emerald-600" />
                 <span>নিয়মিত পরীক্ষা ও প্রগ্রেস ট্র্যাকিং</span>
               </div>
             </div>
@@ -106,7 +106,7 @@ export function HeroSection() {
               <Link href="#schedule" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="w-full gap-2 rounded-xl bg-[#0F2C59] px-6 py-6 text-base font-semibold text-white shadow-lg shadow-blue-900/20 hover:bg-[#153e7a] active:scale-98 dark:bg-blue-600 dark:hover:bg-blue-500"
+                  className="w-full gap-2 rounded-xl bg-[#0F2C59] ps-6 pe-5 py-6 text-base font-semibold text-white shadow-lg shadow-blue-900/20 hover:bg-[#153e7a] active:scale-[0.96] dark:bg-blue-600 dark:hover:bg-blue-500"
                 >
                   <Calendar className="h-5 w-5 text-orange-400" />
                   <span>ব্যাচের সময়সূচি দেখুন</span>
@@ -118,7 +118,7 @@ export function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full gap-2 rounded-xl border-orange-500/40 bg-white/80 px-6 py-6 text-base font-semibold text-orange-600 shadow-sm hover:bg-orange-50 active:scale-98 dark:border-orange-500/30 dark:bg-slate-900/80 dark:text-orange-400 dark:hover:bg-slate-800"
+                  className="w-full gap-2 rounded-xl border-orange-500/40 bg-white/80 ps-5 pe-6 py-6 text-base font-semibold text-orange-600 shadow-xs hover:bg-orange-50 active:scale-[0.96] dark:border-orange-500/30 dark:bg-slate-900/80 dark:text-orange-400 dark:hover:bg-slate-800"
                 >
                   <Award className="h-5 w-5 text-orange-500" />
                   <span>সাফল্যের গৌরবগাথা</span>
@@ -135,10 +135,10 @@ export function HeroSection() {
 
           {/* Right Column: Hero Teacher Visual & Impact Card */}
           <div className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
-            {/* Outer Glow Ring */}
-            <div className="relative mx-auto max-w-sm rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-2xl backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
-              {/* Photo Container */}
-              <div className="relative aspect-[4/4.6] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-blue-950 via-slate-900 to-black">
+            {/* Outer Glow Ring with Concentric Border Radius (32px outer = 16px inner + 16px padding) */}
+            <div className="relative mx-auto max-w-sm rounded-[32px] border border-slate-200/80 bg-white/90 p-4 shadow-2xl backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
+              {/* Photo Container with 1px neutral image outline */}
+              <div className="relative aspect-[4/4.6] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-blue-950 via-slate-900 to-black outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10">
                 <Image
                   src="/assets/nayonsir.png"
                   alt="Mohamed Nayon Sir - Chemistry Mentor"
@@ -177,8 +177,8 @@ export function HeroSection() {
                 </div>
               </div>
 
-              {/* Floating Floating Stat Badge - Top Left */}
-              <div className="absolute -top-4 -left-4 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl dark:border-slate-700 dark:bg-slate-800">
+              {/* Floating Stat Badge - Top Left */}
+              <div className="absolute -top-4 -left-4 rounded-2xl border border-slate-200/90 bg-white p-3 shadow-xl dark:border-slate-700 dark:bg-slate-800">
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 dark:bg-orange-950 dark:text-orange-400">
                     <Users className="h-5 w-5" />
@@ -195,7 +195,7 @@ export function HeroSection() {
               </div>
 
               {/* Floating Stat Badge - Bottom Right */}
-              <div className="absolute -right-4 -bottom-4 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl dark:border-slate-700 dark:bg-slate-800">
+              <div className="absolute -right-4 -bottom-4 rounded-2xl border border-slate-200/90 bg-white p-3 shadow-xl dark:border-slate-700 dark:bg-slate-800">
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-100 text-[#0F2C59] dark:bg-blue-950 dark:text-blue-300">
                     <Award className="h-5 w-5" />

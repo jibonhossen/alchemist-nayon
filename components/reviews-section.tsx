@@ -96,7 +96,7 @@ export function ReviewsSection() {
           {reviews.map((rev, idx) => (
             <div
               key={idx}
-              className="relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-orange-500/40"
+              className="relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-orange-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-orange-500/40"
             >
               <div>
                 {/* Rating Stars & Quote Icon */}

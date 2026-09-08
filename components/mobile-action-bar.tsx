@@ -10,7 +10,7 @@ export function MobileActionBar() {
         {/* Call Button */}
         <a
           href="tel:+8801780616187"
-          className="flex flex-col items-center justify-center rounded-xl p-1.5 transition-colors active:bg-slate-100 dark:active:bg-slate-800"
+          className="flex flex-col items-center justify-center rounded-xl p-1.5 transition-[background-color,transform] duration-150 ease-out active:scale-[0.96] active:bg-slate-100 dark:active:bg-slate-800"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-[#0F2C59] dark:bg-blue-950 dark:text-blue-300">
             <Phone className="h-4 w-4" />
@@ -25,7 +25,7 @@ export function MobileActionBar() {
           href="https://wa.me/8801780616187?text=আসসালামু%20আলাইকুম%20নয়ন%20স্যার,%20আমি%20আলকেমিস্ট%20কেমিস্ট্রি%20ব্যাচে%20ভর্তি%20হতে%20আগ্রহী।"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center rounded-xl p-1.5 transition-colors active:bg-slate-100 dark:active:bg-slate-800"
+          className="flex flex-col items-center justify-center rounded-xl p-1.5 transition-[background-color,transform] duration-150 ease-out active:scale-[0.96] active:bg-slate-100 dark:active:bg-slate-800"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
             <MessageCircle className="h-4 w-4" />
@@ -38,7 +38,7 @@ export function MobileActionBar() {
         {/* Schedule */}
         <a
           href="#schedule"
-          className="flex flex-col items-center justify-center rounded-xl p-1.5 transition-colors active:bg-slate-100 dark:active:bg-slate-800"
+          className="flex flex-col items-center justify-center rounded-xl p-1.5 transition-[background-color,transform] duration-150 ease-out active:scale-[0.96] active:bg-slate-100 dark:active:bg-slate-800"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-orange-600 dark:bg-orange-950 dark:text-orange-400">
             <Calendar className="h-4 w-4" />
@@ -51,7 +51,7 @@ export function MobileActionBar() {
         {/* Admission */}
         <a
           href="#contact"
-          className="flex flex-col items-center justify-center rounded-xl p-1.5 transition-colors active:bg-slate-100 dark:active:bg-slate-800"
+          className="flex flex-col items-center justify-center rounded-xl p-1.5 transition-[background-color,transform] duration-150 ease-out active:scale-[0.96] active:bg-slate-100 dark:active:bg-slate-800"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100 text-purple-600 dark:bg-purple-950 dark:text-purple-400">
             <Sparkles className="h-4 w-4" />

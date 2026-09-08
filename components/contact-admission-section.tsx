@@ -65,7 +65,7 @@ export function ContactAdmissionSection() {
           {/* Col 1: Direct Contact & Hotline (5 cols) */}
           <div className="flex flex-col gap-6 lg:col-span-6">
             {/* Primary Hotline & WhatsApp Card */}
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition-[box-shadow,border-color] duration-200 ease-out hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-8">
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 dark:bg-orange-950 dark:text-orange-400">
                   <Phone className="h-6 w-6" />
@@ -103,7 +103,7 @@ export function ContactAdmissionSection() {
                     <a href="tel:+8801780616187">
                       <Button
                         size="sm"
-                        className="gap-1.5 rounded-xl bg-[#0F2C59] text-white hover:bg-[#1e3a6d]"
+                        className="gap-1.5 rounded-xl bg-[#0F2C59] ps-3 pe-3.5 text-white hover:bg-[#1e3a6d]"
                       >
                         <Phone className="h-3.5 w-3.5" />
                         <span>কল দিন</span>
@@ -140,7 +140,7 @@ export function ContactAdmissionSection() {
                     >
                       <Button
                         size="sm"
-                        className="gap-1.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700"
+                        className="gap-1.5 rounded-xl bg-emerald-600 ps-3 pe-3.5 text-white hover:bg-emerald-700"
                       >
                         <MessageCircle className="h-3.5 w-3.5" />
                         <span>চ্যাট করুন</span>
@@ -187,7 +187,7 @@ export function ContactAdmissionSection() {
             </div>
 
             {/* Address & Navigation Card */}
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-7">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-7">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 dark:bg-orange-950 dark:text-orange-400">
                   <Building className="h-5 w-5" />
@@ -238,7 +238,7 @@ export function ContactAdmissionSection() {
 
           {/* Col 2: How Admission Works (4 Easy Steps) & Guidelines (6 cols) */}
           <div className="flex flex-col gap-6 lg:col-span-6">
-            <div className="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+            <div className="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-8">
               <div>
                 <div className="flex items-center gap-2">
                   <Badge
@@ -261,7 +261,7 @@ export function ContactAdmissionSection() {
                 {/* Steps */}
                 <div className="mt-6 flex flex-col gap-4">
                   {/* Step 1 */}
-                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-all hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
+                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-600 font-extrabold text-white text-sm">
                       ১
                     </div>
@@ -276,7 +276,7 @@ export function ContactAdmissionSection() {
                   </div>
 
                   {/* Step 2 */}
-                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-all hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
+                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#0F2C59] font-extrabold text-white text-sm dark:bg-blue-700">
                       ২
                     </div>
@@ -291,7 +291,7 @@ export function ContactAdmissionSection() {
                   </div>
 
                   {/* Step 3 */}
-                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-all hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
+                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-600 font-extrabold text-white text-sm">
                       ৩
                     </div>
@@ -306,7 +306,7 @@ export function ContactAdmissionSection() {
                   </div>
 
                   {/* Step 4 */}
-                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-all hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
+                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500 font-extrabold text-white text-sm">
                       ৪
                     </div>

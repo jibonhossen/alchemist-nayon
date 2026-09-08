@@ -98,12 +98,12 @@ export function FeaturesSection() {
             return (
               <div
                 key={idx}
-                className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-orange-500/40"
+                className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1.5 hover:border-orange-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-orange-500/40"
               >
                 <div>
                   <div className="flex items-center justify-between">
                     <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.color} text-white shadow-md transition-transform group-hover:scale-110`}
+                      className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.color} text-white shadow-md transition-transform duration-200 ease-out group-hover:scale-[1.08]`}
                     >
                       <Icon className="h-6 w-6" />
                     </div>
@@ -125,7 +125,7 @@ export function FeaturesSection() {
                 </div>
 
                 <div className="mt-5 flex items-center gap-2 border-t border-slate-100 pt-3 text-xs font-semibold text-[#0F2C59] dark:border-slate-800 dark:text-blue-300">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                  <CheckCircle2 strokeWidth={1.5} className="h-4 w-4 text-emerald-600" />
                   <span>আলকেমিস্টের নিয়মিত পদ্ধতি</span>
                 </div>
               </div>

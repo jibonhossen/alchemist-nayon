@@ -25,8 +25,8 @@ export function TeacherSection() {
         <div className="grid items-center gap-12 lg:grid-cols-12">
           {/* Teacher Image & Lab Atmosphere */}
           <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-sm rounded-3xl border border-slate-200 bg-white p-3.5 shadow-2xl dark:border-slate-800 dark:bg-slate-900">
-              <div className="relative aspect-[4/4.8] w-full overflow-hidden rounded-2xl bg-slate-950">
+            <div className="relative mx-auto max-w-sm rounded-[30px] border border-slate-200/90 bg-white p-3.5 shadow-2xl dark:border-slate-800 dark:bg-slate-900">
+              <div className="relative aspect-[4/4.8] w-full overflow-hidden rounded-2xl bg-slate-950 outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10">
                 <Image
                   src="/assets/nayonsir.png"
                   alt="Mohamed Nayon Sir"
@@ -75,8 +75,8 @@ export function TeacherSection() {
 
             {/* Core Teacher Strengths */}
             <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200/70 bg-white p-3.5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
-                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
+              <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200/70 bg-white p-3.5 shadow-2xs dark:border-slate-800 dark:bg-slate-900">
+                <CheckCircle strokeWidth={1.5} className="mt-0.5 h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
                 <div className="text-xs">
                   <strong className="block text-slate-900 dark:text-white">
                     জৈব রসায়নের মেকানিজম সহজীকরণ
@@ -85,8 +85,8 @@ export function TeacherSection() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200/70 bg-white p-3.5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
-                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
+              <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200/70 bg-white p-3.5 shadow-2xs dark:border-slate-800 dark:bg-slate-900">
+                <CheckCircle strokeWidth={1.5} className="mt-0.5 h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
                 <div className="text-xs">
                   <strong className="block text-slate-900 dark:text-white">
                     গাণিতিক রসায়ন শর্টকাট কৌশল
@@ -95,8 +95,8 @@ export function TeacherSection() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200/70 bg-white p-3.5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
-                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
+              <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200/70 bg-white p-3.5 shadow-2xs dark:border-slate-800 dark:bg-slate-900">
+                <CheckCircle strokeWidth={1.5} className="mt-0.5 h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
                 <div className="text-xs">
                   <strong className="block text-slate-900 dark:text-white">
                     ডিজিটাল স্মার্ট বোর্ড অ্যানিমেশন
@@ -105,8 +105,8 @@ export function TeacherSection() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200/70 bg-white p-3.5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
-                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
+              <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200/70 bg-white p-3.5 shadow-2xs dark:border-slate-800 dark:bg-slate-900">
+                <CheckCircle strokeWidth={1.5} className="mt-0.5 h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
                 <div className="text-xs">
                   <strong className="block text-slate-900 dark:text-white">
                     ব্যক্তিগত মেন্টরশিপ ও যত্ন
@@ -123,7 +123,7 @@ export function TeacherSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button className="gap-2 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700">
+                <Button className="gap-2 rounded-xl bg-emerald-600 ps-4 pe-4.5 text-white hover:bg-emerald-700">
                   <MessageCircle className="h-4 w-4" />
                   <span>নয়ন স্যারের হোয়াটসঅ্যাপ (WhatsApp)</span>
                 </Button>
@@ -132,7 +132,7 @@ export function TeacherSection() {
               <a href="tel:+8801780616187">
                 <Button
                   variant="outline"
-                  className="gap-2 rounded-xl border-blue-900/30 text-[#0F2C59] dark:text-blue-300"
+                  className="gap-2 rounded-xl border-blue-900/30 ps-4 pe-4.5 text-[#0F2C59] dark:text-blue-300"
                 >
                   <Phone className="h-4 w-4 text-orange-500" />
                   <span>ফোন: ০১৭৮০-৬১৬১৮৭</span>

@@ -281,14 +281,14 @@ export function ScheduleSection() {
 
         {/* Premium Batch Switcher Bar */}
         <div className="mt-8 flex justify-center">
-          <div className="inline-flex max-w-full gap-1 overflow-x-auto rounded-2xl border border-slate-200/90 bg-white p-1.5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div className="inline-flex max-w-full gap-1 overflow-x-auto rounded-2xl border border-slate-200/90 bg-white p-1.5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
             {batchPrograms.map((b) => {
               const isActive = b.id === activeTab
               return (
                 <button
                   key={b.id}
                   onClick={() => setActiveTab(b.id)}
-                  className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2.5 text-xs font-bold transition-all sm:px-6 sm:text-sm ${
+                  className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2.5 text-xs font-bold transition-[color,background-color,box-shadow,transform] duration-150 ease-out active:scale-[0.96] sm:px-6 sm:text-sm ${
                     isActive
                       ? "bg-[#0F2C59] text-white shadow-md shadow-blue-900/20 dark:bg-orange-500 dark:text-white"
                       : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
@@ -341,7 +341,7 @@ export function ScheduleSection() {
                 rel="noopener noreferrer"
                 className="shrink-0"
               >
-                <Button className="w-full gap-2 rounded-xl bg-emerald-600 text-xs font-bold text-white shadow-sm hover:bg-emerald-700 sm:w-auto sm:text-sm">
+                <Button className="w-full gap-2 rounded-xl bg-emerald-600 ps-3.5 pe-4 text-xs font-bold text-white shadow-xs hover:bg-emerald-700 sm:w-auto sm:text-sm">
                   <MessageCircle className="h-4 w-4" />
                   <span>সিট নিশ্চিত করুন</span>
                 </Button>
@@ -392,7 +392,7 @@ export function ScheduleSection() {
                           </span>
                         </div>
                       </div>
-                      <span className="rounded-full bg-white/80 px-2.5 py-0.5 text-[11px] font-bold shadow-xs dark:bg-slate-900/80">
+                      <span className="rounded-full bg-white/80 px-2.5 py-0.5 text-[11px] font-bold shadow-2xs dark:bg-slate-900/80">
                         {routine.slots.length}টি ব্যাচ স্লট
                       </span>
                     </div>
@@ -407,11 +407,11 @@ export function ScheduleSection() {
                         return (
                           <div
                             key={sIdx}
-                            className="group flex flex-col gap-2.5 py-3 transition-colors first:pt-1 last:pb-1 sm:flex-row sm:items-center sm:justify-between"
+                            className="group flex flex-col gap-2.5 py-3 transition-[background-color] duration-150 ease-out first:pt-1 last:pb-1 sm:flex-row sm:items-center sm:justify-between"
                           >
                             {/* Left: Time & Period */}
                             <div className="flex items-center gap-3">
-                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white shadow-xs ring-1 ring-slate-200/80 dark:bg-slate-900 dark:ring-slate-800">
+                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white shadow-2xs ring-1 ring-slate-200/80 dark:bg-slate-900 dark:ring-slate-800">
                                 {getPeriodIcon(slot.period)}
                               </div>
                               <div>
@@ -442,7 +442,7 @@ export function ScheduleSection() {
                                 <Button
                                   size="sm"
                                   variant="ghost"
-                                  className="h-8 gap-1 rounded-lg border border-emerald-200 bg-white px-2.5 text-xs font-bold text-emerald-700 shadow-2xs hover:bg-emerald-600 hover:text-white dark:border-emerald-900/60 dark:bg-slate-900 dark:text-emerald-300 dark:hover:bg-emerald-600 dark:hover:text-white"
+                                  className="h-8 gap-1 rounded-lg border border-emerald-200 bg-white ps-2.5 pe-2 text-xs font-bold text-emerald-700 shadow-2xs hover:bg-emerald-600 hover:text-white dark:border-emerald-900/60 dark:bg-slate-900 dark:text-emerald-300 dark:hover:bg-emerald-600 dark:hover:text-white"
                                 >
                                   <span>সিট বুক</span>
                                   <ArrowRight className="h-3 w-3" />

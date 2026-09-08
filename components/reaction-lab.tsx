@@ -190,7 +190,7 @@ export function ReactionLab() {
                   <button
                     key={r.id}
                     onClick={() => handleSelectReaction(r)}
-                    className={`flex flex-col rounded-2xl border p-4 text-left transition-all ${
+                    className={`flex flex-col rounded-2xl border p-4 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-150 ease-out active:scale-[0.96] ${
                       isSelected
                         ? "border-orange-500 bg-white shadow-md ring-2 ring-orange-500/20 dark:border-orange-500 dark:bg-slate-900"
                         : "border-slate-200 bg-white/60 hover:border-slate-300 hover:bg-white dark:border-slate-800 dark:bg-slate-900/60 dark:hover:bg-slate-900"
@@ -245,7 +245,7 @@ export function ReactionLab() {
 
                   {/* Dynamic Solution Liquid */}
                   <div
-                    className="relative w-full rounded-b-2xl transition-all duration-1000 ease-out"
+                    className="relative w-full rounded-b-2xl transition-[height,background-color,box-shadow] duration-1000 ease-out"
                     style={{
                       height: reacted ? "62%" : isReacting ? "58%" : "50%",
                       backgroundColor: reacted
@@ -287,7 +287,7 @@ export function ReactionLab() {
                   <Button
                     onClick={triggerReaction}
                     disabled={isReacting || reacted}
-                    className="gap-2 rounded-xl bg-orange-600 px-4 text-xs font-semibold text-white shadow hover:bg-orange-700 active:scale-95 disabled:opacity-50"
+                    className="gap-2 rounded-xl bg-orange-600 ps-4 pe-4.5 text-xs font-semibold text-white shadow hover:bg-orange-700 active:scale-[0.96] disabled:opacity-50"
                   >
                     <Flame className="h-4 w-4" />
                     {isReacting

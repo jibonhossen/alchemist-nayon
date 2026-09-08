@@ -290,7 +290,7 @@ export function HallOfFame() {
           {filteredStudents.map((student, idx) => (
             <div
               key={idx}
-              className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-4.5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-orange-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-orange-500/50"
+              className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-4.5 shadow-xs transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-orange-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-orange-500/50"
             >
               <div>
                 <div className="flex items-start justify-between gap-2">
@@ -335,7 +335,7 @@ export function HallOfFame() {
         <div className="mt-12 rounded-3xl border border-orange-200/80 bg-gradient-to-r from-orange-50 via-amber-50 to-blue-50 p-6 sm:p-8 dark:border-slate-800 dark:from-slate-900 dark:via-slate-900/80 dark:to-blue-950/40">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-4">
-              <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xl border border-slate-300 shadow-md sm:h-24 sm:w-36">
+              <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xl shadow-md sm:h-24 sm:w-36 outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10">
                 <Image
                   src="/assets/previousstudets.png"
                   alt="Alchemist 2025 Success Banner"
@@ -358,7 +358,7 @@ export function HallOfFame() {
 
             <Button
               onClick={() => setShowBannerModal(true)}
-              className="gap-2 rounded-xl bg-[#0F2C59] text-white hover:bg-blue-900"
+              className="gap-2 rounded-xl bg-[#0F2C59] ps-4 pe-3.5 text-white hover:bg-blue-900"
             >
               <span>ব্যানারের পূর্ণাঙ্গ ছবি দেখুন</span>
               <ExternalLink className="h-4 w-4" />
@@ -369,14 +369,14 @@ export function HallOfFame() {
         {/* Fullscreen Banner Modal */}
         {showBannerModal && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm transition-opacity duration-200 ease-out"
             onClick={() => setShowBannerModal(false)}
           >
             <div
-              className="relative max-h-[90vh] max-w-4xl overflow-hidden rounded-2xl bg-white p-2 shadow-2xl dark:bg-slate-900"
+              className="relative max-h-[90vh] max-w-4xl overflow-hidden rounded-2xl bg-white p-2 shadow-2xl transition-transform duration-200 ease-out dark:bg-slate-900"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative aspect-video w-full max-w-4xl">
+              <div className="relative aspect-video w-full max-w-4xl overflow-hidden rounded-xl outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10">
                 <Image
                   src="/assets/previousstudets.png"
                   alt="Alchemist 2025 Success Banner Full"
