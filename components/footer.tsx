@@ -55,7 +55,7 @@ export function Footer() {
             <ul className="mt-4 flex flex-col gap-2.5 text-xs text-slate-400">
               <li>
                 <Link href="#schedule" className="hover:text-orange-400">
-                  • HSC-2027 রসায়ন ১ম ও ২য় পত্র
+                  • HSC-2027 রসায়ন 1st ও 2nd পত্র
                 </Link>
               </li>
               <li>
@@ -99,7 +99,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="#hall-of-fame" className="hover:text-orange-400">
-                  সাফল্যের গৌরবগাথা ২০২৫ (Hall of Fame)
+                  সাফল্যের গৌরবগাথা 2025 (Hall of Fame)
                 </Link>
               </li>
               <li>
@@ -147,7 +147,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:underline"
                 >
-                  WhatsApp: ০১৭৮০-৬১৬১৮৭
+                  WhatsApp: 01780-616187
                 </a>
               </div>
             </div>

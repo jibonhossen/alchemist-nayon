@@ -14,8 +14,7 @@ import {
   CheckCircle2,
   Atom,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { Button, Chip } from "@heroui/react"
 
 export function HeroSection() {
   return (
@@ -47,20 +46,24 @@ export function HeroSection() {
           <div className="flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left">
             {/* Top Tag Badges */}
             <div className="mb-4 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-              <Badge
-                variant="alchemist"
-                className="gap-1.5 px-3 py-1 text-xs font-medium"
+              <Chip
+                variant="soft"
+                color="warning"
+                size="sm"
+                className="gap-1.5 px-3 py-1 font-semibold"
               >
                 <Sparkles className="h-3.5 w-3.5 text-orange-500" />
-                <span>HSC ২০২৭ ও ২০২৮ নতুন ব্যাচে ভর্তি চলছে</span>
-              </Badge>
-              <Badge
-                variant="navy"
-                className="gap-1.5 px-3 py-1 text-xs font-medium"
+                <span>HSC 2027 ও 2028 নতুন ব্যাচে ভর্তি চলছে</span>
+              </Chip>
+              <Chip
+                variant="soft"
+                color="accent"
+                size="sm"
+                className="gap-1.5 px-3 py-1 font-semibold"
               >
                 <Atom className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
                 <span>অনার্স কেমিস্ট্রি কেয়ার</span>
-              </Badge>
+              </Chip>
             </div>
 
             {/* Main Headline */}
@@ -185,7 +188,7 @@ export function HeroSection() {
                   </div>
                   <div>
                     <div className="text-base font-bold text-slate-900 dark:text-white">
-                      ১,২০০+
+                      1,200+
                     </div>
                     <div className="text-[10px] text-slate-500 dark:text-slate-400">
                       সফল শিক্ষার্থী
@@ -202,7 +205,7 @@ export function HeroSection() {
                   </div>
                   <div>
                     <div className="text-base font-bold text-slate-900 dark:text-white">
-                      ২০২৫ সালে
+                      2025 সালে
                     </div>
                     <div className="text-[10px] text-slate-500 dark:text-slate-400">
                       মেডিকেল ও কুয়েটে চান্স
@@ -218,7 +221,7 @@ export function HeroSection() {
         <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:mt-20">
           <div className="flex flex-col items-center rounded-2xl border border-slate-200/80 bg-white/70 p-4 text-center shadow-sm backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/60">
             <div className="text-2xl font-black text-[#0F2C59] sm:text-3xl dark:text-blue-400">
-              ১০০%
+              100%
             </div>
             <div className="mt-1 text-xs font-semibold text-slate-600 dark:text-slate-300">
               বোর্ড ভিত্তিক প্রস্তুতি
@@ -245,7 +248,7 @@ export function HeroSection() {
 
           <div className="flex flex-col items-center rounded-2xl border border-slate-200/80 bg-white/70 p-4 text-center shadow-sm backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/60">
             <div className="text-2xl font-black text-purple-600 sm:text-3xl dark:text-purple-400">
-              ২৪/৭
+              24/7
             </div>
             <div className="mt-1 text-xs font-semibold text-slate-600 dark:text-slate-300">
               ডাউট ক্লিয়ারিং সাপোর্ট

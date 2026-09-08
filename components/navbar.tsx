@@ -17,7 +17,7 @@ import {
   Sparkles,
   MapPin,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@heroui/react"
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
@@ -102,10 +102,10 @@ export function Navbar() {
           {mounted && (
             <Button
               variant="ghost"
-              size="icon"
+              isIconOnly
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
               className="relative h-9 w-9 overflow-hidden text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
-              title="Toggle Theme (or press 'd')"
+              aria-label="Toggle Theme (or press 'd')"
             >
               <div
                 className={`absolute inset-0 flex items-center justify-center transition-[opacity,filter,transform] duration-300 ease-[cubic-bezier(0.2,0,0,1)] ${
@@ -153,14 +153,14 @@ export function Navbar() {
               className="gap-1.5 rounded-full border-blue-900/30 ps-3 pe-3.5 text-xs font-semibold text-[#0F2C59] hover:bg-blue-50 dark:border-blue-400/40 dark:text-blue-300 dark:hover:bg-blue-950/50"
             >
               <Phone className="h-3.5 w-3.5 text-orange-500" />
-              <span>০১৭৮০-৬১৬১৮৭</span>
+              <span>01780-616187</span>
             </Button>
           </a>
 
           {/* Mobile Menu Hamburger with Contextual Cross-fade */}
           <Button
             variant="ghost"
-            size="icon"
+            isIconOnly
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="relative h-9 w-9 overflow-hidden text-slate-700 lg:hidden dark:text-slate-200"
             aria-label="Toggle Navigation Menu"
@@ -231,7 +231,7 @@ export function Navbar() {
               >
                 <Button className="w-full gap-2 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700">
                   <MessageCircle className="h-4 w-4" />
-                  <span>সরাসরি হোয়াটসঅ্যাপ (০১৭৮০-৬১৬১৮৭)</span>
+                  <span>সরাসরি হোয়াটসঅ্যাপ (01780-616187)</span>
                 </Button>
               </a>
               <a href="tel:+8801780616187" className="w-full">
@@ -240,7 +240,7 @@ export function Navbar() {
                   className="w-full gap-2 rounded-xl border-blue-900/20 text-[#0F2C59] dark:text-blue-300"
                 >
                   <Phone className="h-4 w-4 text-orange-500" />
-                  <span>সরাসরি ফোন করুন (০১৭৮০-৬১৬১৮৭)</span>
+                  <span>সরাসরি ফোন করুন (01780-616187)</span>
                 </Button>
               </a>
             </div>

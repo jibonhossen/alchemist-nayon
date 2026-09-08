@@ -15,8 +15,7 @@ import {
   ShieldCheck,
   HelpCircle,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { Button, Chip } from "@heroui/react"
 
 export function ContactAdmissionSection() {
   const whatsappUrl =
@@ -33,13 +32,15 @@ export function ContactAdmissionSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center">
-          <Badge
-            variant="alchemist"
-            className="mb-3 gap-1.5 px-3.5 py-1 text-xs font-semibold"
+          <Chip
+            variant="soft"
+            color="warning"
+            size="sm"
+            className="mb-3 gap-1.5 px-3.5 py-1 font-semibold"
           >
             <MapPin className="h-3.5 w-3.5 text-orange-500" />
             <span>ভর্তি ও যোগাযোগ (Admission & Contact)</span>
-          </Badge>
+          </Chip>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
             আজই আপনার পছন্দের ব্যাচে সিট নিশ্চিত করুন
           </h2>
@@ -129,7 +130,7 @@ export function ContactAdmissionSection() {
                           rel="noopener noreferrer"
                           className="block text-base font-bold text-emerald-600 hover:underline dark:text-emerald-400"
                         >
-                          ০১৭৮০-৬১৬১৮৭
+                          01780-616187
                         </a>
                       </div>
                     </div>
@@ -156,7 +157,7 @@ export function ContactAdmissionSection() {
                     <strong className="block text-slate-900 dark:text-white">
                       অফিস খোলা থাকার সময়:
                     </strong>
-                    <span>সকাল ৭:০০ টা থেকে রাত ৮:০০ টা (সপ্তাহের ৭ দিনই খোলা)</span>
+                    <span>সকাল 7:00 টা থেকে রাত 8:00 টা (সপ্তাহের 7 দিনই খোলা)</span>
                   </div>
                 </div>
               </div>
@@ -241,14 +242,15 @@ export function ContactAdmissionSection() {
             <div className="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-8">
               <div>
                 <div className="flex items-center gap-2">
-                  <Badge
-                    variant="outline"
-                    className="border-orange-300 text-orange-600 dark:border-orange-800 dark:text-orange-400 text-[11px]"
+                  <Chip
+                    variant="secondary"
+                    size="sm"
+                    className="border-orange-300 text-orange-600 dark:border-orange-800 dark:text-orange-400 text-[11px] font-semibold"
                   >
                     ভর্তি প্রক্রিয়া
-                  </Badge>
+                  </Chip>
                   <span className="text-xs text-slate-500 dark:text-slate-400">
-                    সহজ ৪টি ধাপে সম্পন্ন করুন
+                    সহজ 4টি ধাপে সম্পন্ন করুন
                   </span>
                 </div>
                 <h3 className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
@@ -263,7 +265,7 @@ export function ContactAdmissionSection() {
                   {/* Step 1 */}
                   <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-600 font-extrabold text-white text-sm">
-                      ১
+                      1
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-slate-900 dark:text-white">
@@ -278,7 +280,7 @@ export function ContactAdmissionSection() {
                   {/* Step 2 */}
                   <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#0F2C59] font-extrabold text-white text-sm dark:bg-blue-700">
-                      ২
+                      2
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-slate-900 dark:text-white">
@@ -293,7 +295,7 @@ export function ContactAdmissionSection() {
                   {/* Step 3 */}
                   <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-600 font-extrabold text-white text-sm">
-                      ৩
+                      3
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-slate-900 dark:text-white">
@@ -308,7 +310,7 @@ export function ContactAdmissionSection() {
                   {/* Step 4 */}
                   <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500 font-extrabold text-white text-sm">
-                      ৪
+                      4
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-slate-900 dark:text-white">

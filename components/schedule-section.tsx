@@ -15,8 +15,7 @@ import {
   ArrowRight,
   ShieldAlert,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { Button, Chip } from "@heroui/react"
 
 interface TimeSlot {
   time: string
@@ -50,11 +49,11 @@ const batchPrograms: BatchProgram[] = [
     id: "hsc-2027",
     tabLabel: "HSC 2027",
     title: "HSC - 2027 ব্যাচ",
-    academicYear: "একাদশ ও দ্বাদশ শ্রেণি (২০২৫–২৭ সেশন)",
+    academicYear: "একাদশ ও দ্বাদশ শ্রেণি (2025–27 সেশন)",
     tag: "চলমান ও নিয়মিত ব্যাচ",
     tagVariant: "alchemist",
     description:
-      "এইচএসসি ২০২৭ ব্যাচের শিক্ষার্থীদের জন্য ১ম ও ২য় পত্রের অধ্যায়ভিত্তিক সুষম প্রস্তুতি। ব্যাচের সময়সূচি সারাবছর অপরিবর্তিত থাকে।",
+      "এইচএসসি 2027 ব্যাচের শিক্ষার্থীদের জন্য 1st ও 2nd পত্রের অধ্যায়ভিত্তিক সুষম প্রস্তুতি। ব্যাচের সময়সূচি সারাবছর অপরিবর্তিত থাকে।",
     routines: [
       {
         id: "sat-mon-wed",
@@ -63,13 +62,13 @@ const batchPrograms: BatchProgram[] = [
         theme: "blue",
         slots: [
           {
-            time: "বিকাল ৪:০০ – ৫:০০ টা",
+            time: "বিকাল 4:00 – 5:00 টা",
             period: "বিকাল",
             periodEn: "Afternoon",
             status: "ভর্তি চলছে",
           },
           {
-            time: "সন্ধ্যা ৬:০০ – ৭:০০ টা",
+            time: "সন্ধ্যা 6:00 – 7:00 টা",
             period: "সন্ধ্যা",
             periodEn: "Evening",
             status: "সীমিত আসন",
@@ -84,26 +83,26 @@ const batchPrograms: BatchProgram[] = [
         theme: "orange",
         slots: [
           {
-            time: "সকাল ৭:০০ – ৮:০০ টা",
+            time: "সকাল 7:00 – 8:00 টা",
             period: "সকাল",
             periodEn: "Morning",
             status: "ভর্তি চলছে",
           },
           {
-            time: "বিকাল ৩:০০ – ৪:০০ টা",
+            time: "বিকাল 3:00 – 4:00 টা",
             period: "বিকাল",
             periodEn: "Afternoon",
             status: "নতুন ব্যাচ শুরু",
             isHot: true,
           },
           {
-            time: "বিকাল ৪:০০ – ৫:০০ টা",
+            time: "বিকাল 4:00 – 5:00 টা",
             period: "বিকাল",
             periodEn: "Afternoon",
             status: "ভর্তি চলছে",
           },
           {
-            time: "বিকাল ৫:০০ – ৬:০০ টা",
+            time: "বিকাল 5:00 – 6:00 টা",
             period: "বিকাল",
             periodEn: "Afternoon",
             status: "সীমিত আসন",
@@ -116,7 +115,7 @@ const batchPrograms: BatchProgram[] = [
     id: "hsc-2028",
     tabLabel: "HSC 2028",
     title: "HSC - 2028 নতুন ব্যাচ",
-    academicYear: "একাদশ শ্রেণি ফাউন্ডেশন (২০২৬–২৮ সেশন)",
+    academicYear: "একাদশ শ্রেণি ফাউন্ডেশন (2026–28 সেশন)",
     tag: "সম্পূর্ণ নতুন ব্যাচ",
     tagVariant: "success",
     description:
@@ -129,14 +128,14 @@ const batchPrograms: BatchProgram[] = [
         theme: "blue",
         slots: [
           {
-            time: "বিকাল ৩:০০ – ৪:০০ টা",
+            time: "বিকাল 3:00 – 4:00 টা",
             period: "বিকাল",
             periodEn: "Afternoon",
             status: "নতুন ব্যাচ শুরু",
             isHot: true,
           },
           {
-            time: "বিকাল ৫:০০ – ৬:০০ টা",
+            time: "বিকাল 5:00 – 6:00 টা",
             period: "বিকাল",
             periodEn: "Afternoon",
             status: "ভর্তি চলছে",
@@ -150,7 +149,7 @@ const batchPrograms: BatchProgram[] = [
         theme: "orange",
         slots: [
           {
-            time: "সন্ধ্যা ৬:০০ – ৭:০০ টা",
+            time: "সন্ধ্যা 6:00 – 7:00 টা",
             period: "সন্ধ্যা",
             periodEn: "Evening",
             status: "ভর্তি চলছে",
@@ -163,7 +162,7 @@ const batchPrograms: BatchProgram[] = [
     id: "honours",
     tabLabel: "Honours Chemistry",
     title: "অনার্স কেমিস্ট্রি কেয়ার",
-    academicYear: "ডিগ্রি ও অনার্স ১ম, ২য় ও ৩য় বর্ষ",
+    academicYear: "ডিগ্রি ও অনার্স 1st, 2nd ও 3rd বর্ষ",
     tag: "বিশ্ববিদ্যালয় ও কলেজ লেভেল",
     tagVariant: "navy",
     description:
@@ -176,13 +175,13 @@ const batchPrograms: BatchProgram[] = [
         theme: "purple",
         slots: [
           {
-            time: "সকাল ৯:০০ – ১১:০০ টা",
+            time: "সকাল 9:00 – 11:00 টা",
             period: "সকাল",
             periodEn: "Morning",
             status: "ভর্তি চলছে",
           },
           {
-            time: "বিকাল ৩:৩০ – ৫:৩০ টা",
+            time: "বিকাল 3:30 – 5:30 টা",
             period: "বিকাল",
             periodEn: "Afternoon",
             status: "ভর্তি চলছে",
@@ -196,7 +195,7 @@ const batchPrograms: BatchProgram[] = [
         theme: "blue",
         slots: [
           {
-            time: "রাত ৮:০০ – ৯:৩০ টা",
+            time: "রাত 8:00 – 9:30 টা",
             period: "রাত",
             periodEn: "Night",
             status: "সীমিত আসন",
@@ -264,13 +263,15 @@ export function ScheduleSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center">
-          <Badge
-            variant="alchemist"
-            className="mb-3 gap-1.5 px-3.5 py-1 text-xs font-semibold"
+          <Chip
+            variant="soft"
+            color="warning"
+            size="sm"
+            className="mb-3 gap-1.5 px-3 py-1 font-semibold"
           >
             <Calendar className="h-3.5 w-3.5 text-orange-500" />
             <span>ফিক্সড ক্লাস শিডিউল (Fixed Timetable)</span>
-          </Badge>
+          </Chip>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
             আপনার সুবিধাজনক সময়ের ব্যাচ বেছে নিন
           </h2>
@@ -323,9 +324,9 @@ export function ScheduleSection() {
                   <h3 className="text-xl font-black text-slate-900 sm:text-2xl dark:text-white">
                     {activeProgram.title}
                   </h3>
-                  <Badge variant={activeProgram.tagVariant} className="text-xs">
+                  <Chip variant="soft" size="sm" className="text-xs font-semibold">
                     {activeProgram.tag}
-                  </Badge>
+                  </Chip>
                 </div>
                 <p className="mt-1 text-xs font-medium text-slate-600 sm:text-sm dark:text-slate-300">
                   {activeProgram.academicYear} • {activeProgram.description}
@@ -474,7 +475,7 @@ export function ScheduleSection() {
                 className="flex shrink-0 items-center gap-1.5 font-bold text-[#0F2C59] hover:underline dark:text-blue-300"
               >
                 <Phone className="h-3.5 w-3.5 text-orange-500" />
-                <span>হটলাইন: ০১৭৮০-৬১৬১৮৭</span>
+                <span>হটলাইন: 01780-616187</span>
               </a>
             </div>
           </div>

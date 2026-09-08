@@ -11,7 +11,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { Chip } from "@heroui/react"
 
 const features = [
   {
@@ -76,13 +76,15 @@ export function FeaturesSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center">
-          <Badge
-            variant="alchemist"
-            className="mb-3 gap-1.5 px-3.5 py-1 text-xs font-semibold"
+          <Chip
+            variant="soft"
+            color="warning"
+            size="sm"
+            className="mb-3 gap-1.5 px-3.5 py-1 font-semibold"
           >
             <Sparkles className="h-3.5 w-3.5 text-orange-500" />
             <span>কোচিংয়ের বৈশিষ্ট্য (Why Alchemist Nayon)</span>
-          </Badge>
+          </Chip>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
             কেন অভিভাবক ও শিক্ষার্থীদের প্রথম পছন্দ?
           </h2>
@@ -107,9 +109,9 @@ export function FeaturesSection() {
                     >
                       <Icon className="h-6 w-6" />
                     </div>
-                    <Badge variant="outline" className="text-[11px]">
+                    <Chip variant="secondary" size="sm" className="text-[11px] font-medium">
                       {feature.badge}
-                    </Badge>
+                    </Chip>
                   </div>
 
                   <h3 className="mt-5 text-lg font-bold text-slate-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-400">

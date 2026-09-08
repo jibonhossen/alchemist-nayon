@@ -12,8 +12,7 @@ import {
   Phone,
   CheckCircle,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { Button, Chip } from "@heroui/react"
 
 export function TeacherSection() {
   return (
@@ -57,13 +56,15 @@ export function TeacherSection() {
 
           {/* Teacher Bio & Philosophy */}
           <div className="flex flex-col lg:col-span-7">
-            <Badge
-              variant="alchemist"
-              className="w-fit gap-1.5 px-3.5 py-1 text-xs font-semibold"
+            <Chip
+              variant="soft"
+              color="warning"
+              size="sm"
+              className="w-fit gap-1.5 px-3.5 py-1 font-semibold"
             >
               <GraduationCap className="h-3.5 w-3.5 text-orange-500" />
               <span>শিক্ষক পরিচিতি ও দর্শন (Faculty Profile)</span>
-            </Badge>
+            </Chip>
 
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
               রসায়নকে ভালোবাসার মতো সহজ করে তোলাই আমার ব্রত
@@ -135,7 +136,7 @@ export function TeacherSection() {
                   className="gap-2 rounded-xl border-blue-900/30 ps-4 pe-4.5 text-[#0F2C59] dark:text-blue-300"
                 >
                   <Phone className="h-4 w-4 text-orange-500" />
-                  <span>ফোন: ০১৭৮০-৬১৬১৮৭</span>
+                  <span>ফোন: 01780-616187</span>
                 </Button>
               </a>
             </div>

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Star, Quote, CheckCircle2, MessageSquare, ThumbsUp } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { Chip } from "@heroui/react"
 
 interface Review {
   name: string
@@ -21,7 +21,7 @@ const reviews: Review[] = [
     comment:
       "নয়ন স্যারের কাছে কেমিস্ট্রি পড়ার পর রসায়নের ভয় পুরোপুরি কেটে গিয়েছিল। বিশেষ করে জৈব রসায়ন ও পরিমাণগত রসায়নের ম্যাথগুলো যেভাবে সহজে করিয়েছেন, মেডিকেল ভর্তি পরীক্ষায় রসায়নে ফুল মার্কস পাওয়া তার কারণেই সম্ভব হয়েছে।",
     rating: 5,
-    batch: "HSC ব্যাচ ২০২৪-২৫",
+    batch: "HSC ব্যাচ 2024-25",
   },
   {
     name: "এম. এম মাহিম",
@@ -52,7 +52,7 @@ const reviews: Review[] = [
   },
   {
     name: "নাজমা বেগম",
-    role: "অভিভাবক (HSC ২০২৭ ব্যাচ)",
+    role: "অভিভাবক (HSC 2027 ব্যাচ)",
     institute: "আরবপুর, যশোর",
     comment:
       "আমার মেয়ে আগে রসায়নে একদম মনোযোগ দিতে পারত না। আলকেমিস্টে ভর্তি হওয়ার পর এখন রসায়নই ওর সবচেয়ে প্রিয় বিষয়। স্যারের ডিজিটাল ক্লাসরুম ও পড়ানোর ধরণ সত্যিই প্রশংসনীয়।",
@@ -76,13 +76,15 @@ export function ReviewsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center">
-          <Badge
-            variant="alchemist"
-            className="mb-3 gap-1.5 px-3.5 py-1 text-xs font-semibold"
+          <Chip
+            variant="soft"
+            color="warning"
+            size="sm"
+            className="mb-3 gap-1.5 px-3.5 py-1 font-semibold"
           >
             <MessageSquare className="h-3.5 w-3.5 text-orange-500" />
             <span>শিক্ষার্থী ও অভিভাবকদের মতামত (Reviews & Testimonials)</span>
-          </Badge>
+          </Chip>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
             যাঁদের আস্থায় আলকেমিস্টের পথচলা
           </h2>
@@ -132,9 +134,9 @@ export function ReviewsSection() {
                       {rev.institute}
                     </span>
                   </div>
-                  <Badge variant="outline" className="text-[10px]">
+                  <Chip variant="secondary" size="sm" className="text-[10px]">
                     {rev.batch}
-                  </Badge>
+                  </Chip>
                 </div>
               </div>
             </div>
@@ -146,7 +148,7 @@ export function ReviewsSection() {
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-6">
             <div className="flex items-center gap-2 text-sm font-bold text-blue-900 dark:text-blue-300">
               <ThumbsUp className="h-4 w-4 text-blue-600" />
-              <span>ফেসবুকে ১,২০০+ অনুসারী ও নিয়মিত ক্লাস আপডেট</span>
+              <span>ফেসবুকে 1,200+ অনুসারী ও নিয়মিত ক্লাস আপডেট</span>
             </div>
             <a
               href="https://facebook.com"

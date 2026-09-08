@@ -13,8 +13,7 @@ import {
   ExternalLink,
   ChevronRight,
 } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button, Chip } from "@heroui/react"
 
 interface Student {
   name: string
@@ -180,15 +179,17 @@ export function HallOfFame() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center">
-          <Badge
-            variant="alchemist"
-            className="mb-3 gap-1.5 px-3.5 py-1 text-xs font-semibold"
+          <Chip
+            variant="soft"
+            color="warning"
+            size="sm"
+            className="mb-3 gap-1.5 px-3.5 py-1 font-semibold"
           >
             <Award className="h-3.5 w-3.5 text-orange-500" />
             <span>সাফল্যের গৌরবগাথা (Hall of Fame)</span>
-          </Badge>
+          </Chip>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            ২০২৫ সালে চান্সপ্রাপ্ত শিক্ষার্থীদের একাংশ
+            2025 সালে চান্সপ্রাপ্ত শিক্ষার্থীদের একাংশ
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm font-medium text-slate-600 sm:text-base dark:text-slate-300">
             পরিকল্পিত পড়াশোনা ও আলকেমিস্ট কেমিস্ট্রি কেয়ারের সঠিক নির্দেশনায় আমাদের শিক্ষার্থীরা জায়গা করে নিয়েছে দেশের সেরা মেডিকেল, ইঞ্জিনিয়ারিং ও পাবলিক বিশ্ববিদ্যালয়ে।
@@ -202,7 +203,7 @@ export function HallOfFame() {
               <Stethoscope className="h-5 w-5" />
             </div>
             <div className="mt-2 text-2xl font-black text-red-700 dark:text-red-400">
-              ৪+
+              4+
             </div>
             <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
               সরকারি মেডিকেল কলেজ
@@ -214,7 +215,7 @@ export function HallOfFame() {
               <Cpu className="h-5 w-5" />
             </div>
             <div className="mt-2 text-2xl font-black text-[#0F2C59] dark:text-blue-300">
-              ৩+
+              3+
             </div>
             <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
               কুয়েট ও ইঞ্জিনিয়ারিং
@@ -226,7 +227,7 @@ export function HallOfFame() {
               <Building2 className="h-5 w-5" />
             </div>
             <div className="mt-2 text-2xl font-black text-emerald-700 dark:text-emerald-400">
-              ১৫+
+              15+
             </div>
             <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
               শীর্ষ পাবলিক ও কৃষি ভার্সিটি
@@ -238,7 +239,7 @@ export function HallOfFame() {
               <Sparkles className="h-5 w-5" />
             </div>
             <div className="mt-2 text-2xl font-black text-orange-600 dark:text-orange-400">
-              ১০০%
+              100%
             </div>
             <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
               বোর্ড এ+ পাশের নিশ্চয়তা
@@ -250,7 +251,7 @@ export function HallOfFame() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
           <Button
             size="sm"
-            variant={activeCategory === "all" ? "default" : "outline"}
+            variant={activeCategory === "all" ? "primary" : "outline"}
             onClick={() => setActiveCategory("all")}
             className="rounded-full text-xs font-semibold"
           >
@@ -258,7 +259,7 @@ export function HallOfFame() {
           </Button>
           <Button
             size="sm"
-            variant={activeCategory === "medical" ? "default" : "outline"}
+            variant={activeCategory === "medical" ? "primary" : "outline"}
             onClick={() => setActiveCategory("medical")}
             className="rounded-full text-xs font-semibold"
           >
@@ -267,7 +268,7 @@ export function HallOfFame() {
           </Button>
           <Button
             size="sm"
-            variant={activeCategory === "engineering" ? "default" : "outline"}
+            variant={activeCategory === "engineering" ? "primary" : "outline"}
             onClick={() => setActiveCategory("engineering")}
             className="rounded-full text-xs font-semibold"
           >
@@ -276,7 +277,7 @@ export function HallOfFame() {
           </Button>
           <Button
             size="sm"
-            variant={activeCategory === "university" ? "default" : "outline"}
+            variant={activeCategory === "university" ? "primary" : "outline"}
             onClick={() => setActiveCategory("university")}
             className="rounded-full text-xs font-semibold"
           >
@@ -297,18 +298,20 @@ export function HallOfFame() {
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-900 to-[#0F2C59] font-bold text-white shadow-xs">
                     {student.name.charAt(0)}
                   </div>
-                  <Badge
-                    variant={
+                  <Chip
+                    variant="soft"
+                    color={
                       student.category === "medical"
-                        ? "destructive"
+                        ? "danger"
                         : student.category === "engineering"
-                        ? "navy"
+                        ? "accent"
                         : "success"
                     }
-                    className="text-[10.5px]"
+                    size="sm"
+                    className="text-[10.5px] font-semibold"
                   >
                     {student.highlight}
-                  </Badge>
+                  </Chip>
                 </div>
 
                 <div className="mt-3">
@@ -322,7 +325,7 @@ export function HallOfFame() {
               </div>
 
               <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-2.5 text-[11px] text-slate-500 dark:border-slate-800 dark:text-slate-400">
-                <span>সেশন: ২০২৪-২০২৫</span>
+                <span>সেশন: 2024-2025</span>
                 <span className="font-semibold text-emerald-600 dark:text-emerald-400">
                   সফল অ্যালকেমিস্ট
                 </span>
@@ -348,7 +351,7 @@ export function HallOfFame() {
                   অফিসিয়াল সাফল্যের ব্যানার
                 </span>
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                  ২০২৫ সালের পূর্ণাঙ্গ পোস্টার ও শিক্ষার্থীদের তালিকা
+                  2025 সালের পূর্ণাঙ্গ পোস্টার ও শিক্ষার্থীদের তালিকা
                 </h4>
                 <p className="text-xs text-slate-600 dark:text-slate-300">
                   কোচিং প্রাঙ্গণে সংরক্ষিত অফিসিয়াল ফল ও ছবিসমূহ
