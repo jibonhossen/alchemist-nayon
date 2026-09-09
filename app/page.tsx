@@ -4,6 +4,7 @@ import * as React from "react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
+import { StudentSpotlightSection } from "@/components/student-spotlight-section"
 import { FeaturesSection } from "@/components/features-section"
 import { ScheduleSection } from "@/components/schedule-section"
 import { HallOfFame } from "@/components/hall-of-fame"
@@ -25,6 +26,11 @@ export default function Home() {
       <main>
         {/* 1. Hero Section & Lab Console */}
         <HeroSection />
+
+        {/* 1.5. Previous Student Success Spotlight (3D Coverflow Carousel) */}
+        <div data-reveal id="students-spotlight-wrapper">
+          <StudentSpotlightSection />
+        </div>
 
         {/* 2. Asymmetric Bento Features */}
         <div data-reveal id="features-wrapper">
