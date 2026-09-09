@@ -59,17 +59,10 @@ export function Navbar() {
 
   const navLinks = [
     { name: "হোম", href: "#home" },
+    { name: "সাফল্য মঞ্চ", href: "#student-spotlight" },
+    { name: "নয়ন স্যার", href: "#faculty" },
     {
-      name: "সময়সূচি ও ব্যাচ",
-      href: "#schedule",
-      subItems: [
-        { name: "এইচএসসি ২০২৬ ব্যাচ (১ম বর্ষ)", href: "#schedule" },
-        { name: "এইচএসসি ২০২৭ ব্যাচ (২য় বর্ষ)", href: "#schedule" },
-        { name: "অনার্স কেমিস্ট্রি ব্যাচ", href: "#schedule" },
-      ],
-    },
-    {
-      name: "কোর্স ও ফিচার্স",
+      name: "পদ্ধতি ও ফিচার্স",
       href: "#features",
       subItems: [
         { name: "স্মার্ট ডিজিটাল ক্লাসরুম", href: "#features" },
@@ -78,10 +71,18 @@ export function Navbar() {
         { name: "অনলাইন ব্যাকআপ ও টেস্ট", href: "#features" },
       ],
     },
-    { name: "সাফল্যের ইতিহাস", href: "#hall-of-fame" },
-    { name: "নয়ন স্যার", href: "#faculty" },
+    {
+      name: "সময়সূচি ও ব্যাচ",
+      href: "#schedule",
+      subItems: [
+        { name: "এইচএসসি ২০২৭ ব্যাচ", href: "#schedule" },
+        { name: "এইচএসসি ২০২৮ ব্যাচ", href: "#schedule" },
+        { name: "অনার্স কেমিস্ট্রি ব্যাচ", href: "#schedule" },
+      ],
+    },
+    { name: "হল অব ফেম", href: "#hall-of-fame" },
     { name: "রিভিউ", href: "#reviews" },
-    { name: "ঠিকানা ও ক্যাম্পাস", href: "#contact" },
+    { name: "ক্যাম্পাস ও ভর্তি", href: "#contact" },
   ]
 
   return (

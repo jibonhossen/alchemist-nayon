@@ -45,7 +45,7 @@ function StudentDetailsMinimal({
 
 const studentSlides: CoverflowSlide[] = [
   {
-    src: "https://images.unsplash.com/photo-1574297500578-afae55026ff3?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/shifsa-naznin.jpg",
     alt: "শিফসা নাজনিন - যশোর মেডিকেল কলেজ",
     title: "শিফসা নাজনিন",
     subtitle: "যশোর মেডিকেল কলেজ (JMC)",
@@ -59,7 +59,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1598096969068-7f52cac10c83?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/sijat-mortaza.jpg",
     alt: "সিজাত মোর্তজা অয়ন - মাগুরা মেডিকেল কলেজ",
     title: "সিজাত মোর্তজা অয়ন",
     subtitle: "মাগুরা মেডিকেল কলেজ",
@@ -73,10 +73,10 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1623303366639-0e330d7c3d9f?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/mm-mahim.jpg",
     alt: "এম. এম মাহিম - কুয়েট",
     title: "এম. এম মাহিম",
-    subtitle: "কুয়েট (KUET) - পুরকৌশল",
+    subtitle: "কুয়েট (KUET) ",
     badge: "ইঞ্জিনিয়ারিং",
     badgeColor: "bg-[#0288D1] text-white",
     category: "engineering",
@@ -87,7 +87,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1550546094-9835463f9f71?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/jenifa-snigdha.jpg",
     alt: "জেনিফা তামার্না স্নিগ্ধা - কক্সবাজার মেডিকেল কলেজ",
     title: "জেনিফা তামার্না স্নিগ্ধা",
     subtitle: "কক্সবাজার মেডিকেল কলেজ",
@@ -101,7 +101,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1513258496099-48168024aec0?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/kushal-paul.jpg",
     alt: "কুশল চন্দ্র পাল - শাবিপ্রবি",
     title: "কুশল চন্দ্র পাল",
     subtitle: "শাবিপ্রবি (SUST) - বিজ্ঞান ও প্রযুক্তি",
@@ -115,7 +115,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/kulsum-tarin.jpg",
     alt: "উম্মে কুলসুম তারিন - পটুয়াখালী মেডিকেল কলেজ",
     title: "উম্মে কুলসুম তারিন",
     subtitle: "পটুয়াখালী মেডিকেল কলেজ",
@@ -129,7 +129,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1517487313006-d80558d7a5cb?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/pushpita-roy.jpg",
     alt: "পুষ্পিতা রায় - সরকারি টেক্সটাইল ইঞ্জিনিয়ারিং কলেজ",
     title: "পুষ্পিতা রায়",
     subtitle: "সরকারি টেক্সটাইল ইঞ্জিনিয়ারিং কলেজ",
@@ -143,7 +143,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1667655861998-46fe4c29a4cf?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/tasnim-alif.jpg",
     alt: "মো: তাসনিম আলিফ - জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
     title: "মো: তাসনিম আলিফ",
     subtitle: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
@@ -157,7 +157,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1613447895817-e617a4093f50?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/irina-jerin.jpg",
     alt: "ইরিনা জেরিন - বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
     title: "ইরিনা জেরিন",
     subtitle: "বাংলাদেশ কৃষি বিশ্ববিদ্যালয় (BAU)",
@@ -171,7 +171,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1632507273499-df468b359d7d?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/riazul-islam.jpg",
     alt: "রিয়াজুল ইসলাম - খুলনা বিশ্ববিদ্যালয়",
     title: "রিয়াজুল ইসলাম",
     subtitle: "খুলনা বিশ্ববিদ্যালয় (KU)",
@@ -185,7 +185,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1604177091072-b7b677a077f6?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/kazi-sumaiya.jpg",
     alt: "কাজী সুমাইয়া - বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
     title: "কাজী সুমাইয়া",
     subtitle: "বাংলাদেশ কৃষি বিশ্ববিদ্যালয় (BAU)",
@@ -199,7 +199,7 @@ const studentSlides: CoverflowSlide[] = [
     ],
   },
   {
-    src: "https://images.unsplash.com/photo-1495995424756-6a5a3f9e7543?crop=entropy&cs=tinysrgb&fit=crop&w=600&h=600&q=80",
+    src: "/students/yamin-hossain.jpg",
     alt: "ইয়ামিন হোসেন - বরিশাল বিশ্ববিদ্যালয়",
     title: "ইয়ামিন হোসেন",
     subtitle: "বরিশাল বিশ্ববিদ্যালয় (BU)",

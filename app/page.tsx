@@ -27,37 +27,37 @@ export default function Home() {
         {/* 1. Hero Section & Lab Console */}
         <HeroSection />
 
-        {/* 1.5. Previous Student Success Spotlight (3D Coverflow Carousel) */}
+        {/* 2. Previous Student Success Spotlight (3D Coverflow Carousel) */}
         <div data-reveal id="students-spotlight-wrapper">
           <StudentSpotlightSection />
         </div>
 
-        {/* 2. Asymmetric Bento Features */}
-        <div data-reveal id="features-wrapper">
-          <FeaturesSection />
-        </div>
-
-        {/* 3. Class Schedule & Routine Bento */}
-        <div data-reveal id="schedule-wrapper">
-          <ScheduleSection />
-        </div>
-
-        {/* 4. Hall of Fame (Cohere Research Table) */}
-        <div data-reveal id="hall-of-fame-wrapper">
-          <HallOfFame />
-        </div>
-
-        {/* 5. Mentor Spotlight - Mohamed Nayon */}
+        {/* 3. Mentor Spotlight - Mohamed Nayon */}
         <div data-reveal id="faculty-wrapper">
           <TeacherSection />
         </div>
 
-        {/* 6. Student & Parent Editorial Reviews */}
+        {/* 4. Asymmetric Bento Features */}
+        <div data-reveal id="features-wrapper">
+          <FeaturesSection />
+        </div>
+
+        {/* 5. Class Schedule & Routine Bento */}
+        <div data-reveal id="schedule-wrapper">
+          <ScheduleSection />
+        </div>
+
+        {/* 6. Hall of Fame (Cohere Research Table) */}
+        <div data-reveal id="hall-of-fame-wrapper">
+          <HallOfFame />
+        </div>
+
+        {/* 7. Student & Parent Editorial Reviews */}
         <div data-reveal id="reviews-wrapper">
           <ReviewsSection />
         </div>
 
-        {/* 7. Campus Visit & Direct Call Admission Hub */}
+        {/* 8. Campus Visit & Direct Call Admission Hub */}
         <div data-reveal id="contact-wrapper">
           <ContactAdmissionSection />
         </div>
