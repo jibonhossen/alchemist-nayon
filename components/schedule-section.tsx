@@ -11,6 +11,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Tabs, TabsList, TabsTrigger } from "@/components/motion/tabs"
 
 interface TimeSlot {
   time: string
@@ -230,24 +231,27 @@ export function ScheduleSection() {
           </p>
         </div>
 
-        {/* Cohere Blog-Filter-Chip Style Program Selector */}
-        <div className="flex flex-wrap items-center gap-2.5 mb-10">
-          {batchPrograms.map((program) => {
-            const isActive = selectedBatch === program.id
-            return (
-              <button
-                key={program.id}
-                onClick={() => setSelectedBatch(program.id)}
-                className={`rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer ${
-                  isActive
-                    ? "bg-[#17171c] text-white shadow-sm border border-[#17171c]"
-                    : "bg-white text-[#17171c] border border-[#d9d9dd] hover:bg-[#eeece7]"
-                }`}
-              >
-                {program.tabLabel}
-              </button>
-            )
-          })}
+        {/* beUI Motion Animated Pill Tabs (Centered) */}
+        <div className="mb-10 flex justify-center w-full overflow-x-auto pb-2 sm:pb-0">
+          <Tabs
+            value={selectedBatch}
+            onValueChange={setSelectedBatch}
+            variant="pill"
+            className="flex justify-center"
+          >
+            <TabsList className="bg-[#f1f5f9] border border-[#e2e8f0] p-1.5 rounded-full shadow-2xs">
+              {batchPrograms.map((program) => (
+                <TabsTrigger
+                  key={program.id}
+                  value={program.id}
+                  className="px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-bold"
+                  indicatorClassName="bg-[#0F172A] shadow-sm"
+                >
+                  {program.tabLabel}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
         </div>
 
         {/* Active Program Card & Overview (Cloudflare Blueprint Style) */}
@@ -259,17 +263,18 @@ export function ScheduleSection() {
           <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
 
           <div className="border border-[#e2e8f0] bg-white p-6 md:p-8 shadow-xs">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e2e8f0] pb-6 mb-6">
+            {/* Header: Title, Category Tag, Academic Year, and Description */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e2e8f0] pb-6 mb-8">
               <div>
-                <div className="flex items-center gap-2.5 mb-1">
-                  <h3 className="font-display text-2xl font-bold text-[#0F172A]">
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#0F172A]">
                     {currentProgram.title}
                   </h3>
-                  <span className="rounded-full border border-[#FFB74D] bg-[#FFF3E0] px-2.5 py-0.5 text-xs font-bold text-[#E65100]">
+                  <span className="rounded-full border border-[#FFB74D] bg-[#FFF3E0] px-3 py-0.5 text-xs font-bold text-[#E65100]">
                     {currentProgram.tag}
                   </span>
                 </div>
-                <p className="text-xs font-medium text-[#64748b]">
+                <p className="text-xs font-semibold text-[#64748b]">
                   {currentProgram.academicYear}
                 </p>
               </div>
@@ -278,91 +283,82 @@ export function ScheduleSection() {
               </p>
             </div>
 
-            {/* Routine Bento Grid (Cloudflare Card Style) */}
+            {/* Routine Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {currentProgram.routines.map((routine) => (
                 <div
                   key={routine.id}
-                  className="relative flex flex-col justify-between"
+                  className="border border-[#e2e8f0] bg-[#F8FAFC]/50 flex flex-col justify-between transition-colors hover:border-[#0D47A1]/30"
                 >
-                  {/* Routine inner corner nodes */}
-                  <span className="absolute -top-1 -left-1 z-10 h-2 w-2 border border-slate-300 bg-white" />
-                  <span className="absolute -top-1 -right-1 z-10 h-2 w-2 border border-slate-300 bg-white" />
-                  <span className="absolute -bottom-1 -left-1 z-10 h-2 w-2 border border-slate-300 bg-white" />
-                  <span className="absolute -bottom-1 -right-1 z-10 h-2 w-2 border border-slate-300 bg-white" />
-
-                  <div className="border border-[#e2e8f0] bg-[#F8FAFC] p-6 h-full flex flex-col justify-between">
+                  {/* Routine Header */}
+                  <div className="border-b border-[#e2e8f0] bg-white p-5 flex items-center justify-between">
                     <div>
-                      <div className="flex items-center justify-between border-b border-[#e2e8f0] pb-3 mb-4">
-                        <div>
-                          <div className="font-bold text-base text-[#0F172A]">
-                            {routine.days}
+                      <h4 className="font-display text-base sm:text-lg font-bold text-[#0F172A]">
+                        {routine.days}
+                      </h4>
+                      <p className="text-xs text-[#64748b] mt-0.5">
+                        {routine.daysEn}
+                      </p>
+                    </div>
+                    <span className="text-xs font-bold text-[#0D47A1] bg-[#F0F7FF] border border-[#0D47A1]/15 px-2.5 py-1 rounded">
+                      {routine.slots.length}টি শিফট
+                    </span>
+                  </div>
+
+                  {/* Slot Rows (Divided stack) */}
+                  <div className="divide-y divide-[#e2e8f0] bg-white">
+                    {routine.slots.map((slot, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 flex items-center justify-between gap-4 hover:bg-[#F8FAFC] transition-colors"
+                      >
+                        {/* Time & Shift info */}
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className="h-9 w-9 bg-[#F0F7FF] border border-[#0D47A1]/20 flex items-center justify-center shrink-0 rounded-lg">
+                            {getPeriodIcon(slot.period)}
                           </div>
-                          <div className="text-[11px] font-mono text-[#64748b]">
-                            {routine.daysEn}
+                          <div className="min-w-0">
+                            <div className="font-display text-base font-bold text-[#0F172A] truncate">
+                              {slot.time}
+                            </div>
+                            <div className="text-xs text-[#64748b] font-medium">
+                              {slot.period} শিফট • {slot.periodEn}
+                            </div>
                           </div>
                         </div>
-                        <span className="border border-[#e2e8f0] bg-white px-2.5 py-0.5 text-[11px] font-semibold text-[#475569]">
-                          {routine.slots.length}টি শিফট
-                        </span>
-                      </div>
 
-                      {/* Slot Rows (Divided Cloudflare style) */}
-                      <div className="space-y-2.5">
-                        {routine.slots.map((slot, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center justify-between p-3 border border-[#e2e8f0] bg-white hover:border-[#0D47A1]/40 transition-colors"
+                        {/* Status Badge */}
+                        <div className="shrink-0">
+                          <span
+                            className={`inline-flex items-center text-xs font-bold px-3 py-1 rounded-full border ${
+                              slot.status === "সীমিত আসন"
+                                ? "bg-[#FFF3E0] border-[#FFB74D] text-[#E65100]"
+                                : slot.status === "নতুন ব্যাচ শুরু"
+                                ? "bg-[#E8F5E9] border-emerald-300 text-emerald-800"
+                                : "bg-[#F0F7FF] border-[#0D47A1]/25 text-[#0D47A1]"
+                            }`}
                           >
-                            <div className="flex items-center gap-3">
-                              <div className="h-8 w-8 bg-[#F0F7FF] border border-[#0D47A1]/20 flex items-center justify-center shrink-0">
-                                {getPeriodIcon(slot.period)}
-                              </div>
-                              <div>
-                                <div className="font-bold text-sm text-[#0F172A]">
-                                  {slot.time}
-                                </div>
-                                <div className="text-[11px] text-[#64748b]">
-                                  {slot.period} শিফট ({slot.periodEn})
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="flex items-center gap-2">
-                              <span
-                                className={`text-[10px] font-bold px-2 py-0.5 border ${
-                                  slot.status === "সীমিত আসন"
-                                    ? "bg-[#FFF3E0] border-[#FFB74D] text-[#E65100]"
-                                    : slot.status === "নতুন ব্যাচ শুরু"
-                                    ? "bg-[#E8F5E9] border-emerald-300 text-emerald-800"
-                                    : "bg-slate-100 border-slate-200 text-slate-700"
-                                }`}
-                              >
-                                {slot.status}
-                              </span>
-
-                              <a href="tel:01780616187" title="আসন নিশ্চিত করতে কল করুন">
-                                <Button
-                                  size="xs"
-                                  className="px-3 text-[11px] font-bold bg-[#0D47A1] text-white hover:bg-[#0B3D91] rounded-none shadow-none"
-                                >
-                                  <Phone className="h-3 w-3 text-[#FFB74D] mr-1" />
-                                  কল
-                                </Button>
-                              </a>
-                            </div>
-                          </div>
-                        ))}
+                            {slot.status}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="mt-5 pt-3 border-t border-[#e2e8f0] text-[11px] text-[#64748b] flex items-center gap-1.5">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                      <span>ক্লাস মিস হলে ব্যাকআপ সহায়তা ও হ্যান্ডনোট প্রদান করা হয়।</span>
-                    </div>
+                    ))}
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Deduplicated Section Assurance Footer */}
+            <div className="mt-8 pt-5 border-t border-[#e2e8f0] flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-[#64748b]">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                <span className="font-medium text-[#0F172A]">
+                  ক্লাস মিস হলে ব্যাকআপ সহায়তা, রেকর্ডেড ক্লাস ও লেকচার শিট প্রদান করা হয়।
+                </span>
+              </div>
+              <span className="font-semibold text-[#E65100]">
+                আগে আসলে আগে পাবেন ভিত্তিতে ব্যাচে আসন বরাদ্দ
+              </span>
             </div>
           </div>
         </div>

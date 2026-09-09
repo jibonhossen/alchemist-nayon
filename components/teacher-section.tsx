@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {
   GraduationCap,
-  Phone,
+  Calendar,
   CheckCircle2,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -112,21 +113,21 @@ export function TeacherSection() {
               </div>
             </div>
 
-            {/* Direct Phone Conversion CTA */}
+            {/* CTA Navigation to Schedule & Admission */}
             <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center gap-4">
-              <a href="tel:01780616187" className="w-full sm:w-auto">
+              <Link href="#schedule" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="primary"
-                  className="w-full sm:w-auto gap-2.5 rounded-full bg-white hover:bg-[#eeece7] text-[#17171c] font-semibold text-sm px-6 py-3"
+                  className="w-full sm:w-auto gap-2.5 rounded-full bg-white hover:bg-[#eeece7] text-[#17171c] font-bold text-sm px-7 py-3 shadow-md"
                 >
-                  <Phone className="h-4 w-4 text-[#ff7759]" />
-                  <span>নয়ন স্যারের সাথে ফোনে কথা বলুন: ০১৭৮০-৬১৬১৮৭</span>
+                  <Calendar className="h-4 w-4 text-[#F57C00]" />
+                  <span>ব্যাচের সময়সূচি ও রুটিন দেখুন</span>
                 </Button>
-              </a>
-              <span className="text-xs text-emerald-200">
-                ভর্তি ও ব্যাচ সংক্রান্ত যেকোনো পরামর্শে সরাসরি কল করুন
-              </span>
+              </Link>
+              <Link href="#contact" className="text-xs font-semibold text-emerald-200 hover:text-white underline underline-offset-4 transition-colors">
+                ক্যাম্পাস লোকেশন ও সরাসরি ভর্তি নির্দেশিকা →
+              </Link>
             </div>
           </div>
         </div>
