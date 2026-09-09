@@ -4,8 +4,9 @@ import { cn } from "@/lib/utils"
 function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
+      data-slot="card"
       className={cn(
-        "rounded-2xl border border-slate-200/80 bg-white/90 text-slate-950 shadow-xs backdrop-blur-sm transition-[box-shadow,border-color,transform] duration-200 ease-out dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-50",
+        "rounded-2xl border border-[#e5e7eb] bg-white text-[#212121] transition-[box-shadow,border-color] duration-150 ease-out",
         className
       )}
       {...props}
@@ -19,6 +20,7 @@ function CardHeader({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
+      data-slot="card-header"
       className={cn("flex flex-col space-y-1.5 p-6", className)}
       {...props}
     />
@@ -31,7 +33,8 @@ function CardTitle({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn("font-semibold leading-none tracking-tight", className)}
+      data-slot="card-title"
+      className={cn("font-bold leading-tight tracking-tight text-[#17171c]", className)}
       {...props}
     />
   )
@@ -43,7 +46,8 @@ function CardDescription({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("text-sm text-slate-500 dark:text-slate-400", className)}
+      data-slot="card-description"
+      className={cn("text-xs sm:text-sm text-[#75758a]", className)}
       {...props}
     />
   )
@@ -53,7 +57,13 @@ function CardContent({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("p-6 pt-0", className)} {...props} />
+  return (
+    <div
+      data-slot="card-content"
+      className={cn("p-6 pt-0", className)}
+      {...props}
+    />
+  )
 }
 
 function CardFooter({
@@ -62,6 +72,7 @@ function CardFooter({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
+      data-slot="card-footer"
       className={cn("flex items-center p-6 pt-0", className)}
       {...props}
     />
