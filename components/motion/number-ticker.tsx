@@ -3,7 +3,7 @@
 import { animate, motion, useInView, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { EASE_OUT } from "@/lib/ease";
-import { cn } from "@/lib/utils";
+import { cn, toBanglaNumber } from "@/lib/utils";
 
 export interface NumberTickerProps {
   value: number;
@@ -62,13 +62,17 @@ export function NumberTicker({
 
   const text = useMemo(() => {
     const rounded = Math.round(value);
-    const formatted = format
-      ? format(rounded)
-      : typeof locale === "string"
-        ? new Intl.NumberFormat(locale).format(rounded)
-        : locale
-          ? rounded.toLocaleString()
-          : rounded.toString();
+    if (format) return format(rounded);
+    if (locale === "bn-BD" || locale === "bn") {
+      const formattedEn = rounded.toLocaleString("en-US");
+      const banglaStr = toBanglaNumber(formattedEn);
+      return pad ? banglaStr.padStart(pad, "০") : banglaStr;
+    }
+    const formatted = typeof locale === "string"
+      ? new Intl.NumberFormat(locale).format(rounded)
+      : locale
+        ? rounded.toLocaleString()
+        : rounded.toString();
     return pad ? formatted.padStart(pad, "0") : formatted;
   }, [value, pad, format, locale]);
 
@@ -174,7 +178,7 @@ function Digit({
       )}
       style={{
         height: `${DIGIT_HEIGHT_EM}em`,
-        width: isBangla ? "0.62em" : "0.56em",
+        width: isBangla ? "0.68em" : "0.58em",
       }}
     >
       <motion.span

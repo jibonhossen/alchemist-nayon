@@ -262,15 +262,15 @@ export function ScheduleSection() {
           <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
           <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
 
-          <div className="border border-[#e2e8f0] bg-white p-6 md:p-8 shadow-xs">
+          <div className="border border-[#e2e8f0] bg-white p-4 sm:p-6 md:p-8 shadow-xs">
             {/* Header: Title, Category Tag, Academic Year, and Description */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e2e8f0] pb-6 mb-8">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e2e8f0] pb-6 mb-6 sm:mb-8">
               <div>
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#0F172A]">
+                <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                  <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-[#0F172A]">
                     {currentProgram.title}
                   </h3>
-                  <span className="rounded-full border border-[#FFB74D] bg-[#FFF3E0] px-3 py-0.5 text-xs font-bold text-[#E65100]">
+                  <span className="rounded-full border border-[#FFB74D] bg-[#FFF3E0] px-2.5 py-0.5 text-xs font-bold text-[#E65100] shrink-0">
                     {currentProgram.tag}
                   </span>
                 </div>
@@ -284,23 +284,23 @@ export function ScheduleSection() {
             </div>
 
             {/* Routine Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {currentProgram.routines.map((routine) => (
                 <div
                   key={routine.id}
                   className="border border-[#e2e8f0] bg-[#F8FAFC]/50 flex flex-col justify-between transition-colors hover:border-[#0D47A1]/30"
                 >
                   {/* Routine Header */}
-                  <div className="border-b border-[#e2e8f0] bg-white p-5 flex items-center justify-between">
-                    <div>
-                      <h4 className="font-display text-base sm:text-lg font-bold text-[#0F172A]">
+                  <div className="border-b border-[#e2e8f0] bg-white p-3.5 sm:p-5 flex items-center justify-between gap-3">
+                    <div className="min-w-0">
+                      <h4 className="font-display text-base sm:text-lg font-bold text-[#0F172A] leading-snug">
                         {routine.days}
                       </h4>
                       <p className="text-xs text-[#64748b] mt-0.5">
                         {routine.daysEn}
                       </p>
                     </div>
-                    <span className="text-xs font-bold text-[#0D47A1] bg-[#F0F7FF] border border-[#0D47A1]/15 px-2.5 py-1 rounded">
+                    <span className="shrink-0 text-xs font-bold text-[#0D47A1] bg-[#F0F7FF] border border-[#0D47A1]/15 px-2.5 py-1 rounded">
                       {routine.slots.length}টি শিফট
                     </span>
                   </div>
@@ -310,18 +310,18 @@ export function ScheduleSection() {
                     {routine.slots.map((slot, idx) => (
                       <div
                         key={idx}
-                        className="p-4 flex items-center justify-between gap-4 hover:bg-[#F8FAFC] transition-colors"
+                        className="p-3 sm:p-4 flex items-center justify-between gap-2.5 sm:gap-4 hover:bg-[#F8FAFC] transition-colors"
                       >
                         {/* Time & Shift info */}
-                        <div className="flex items-center gap-3.5 min-w-0">
-                          <div className="h-9 w-9 bg-[#F0F7FF] border border-[#0D47A1]/20 flex items-center justify-center shrink-0 rounded-lg">
+                        <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
+                          <div className="h-8 w-8 sm:h-9 sm:w-9 bg-[#F0F7FF] border border-[#0D47A1]/20 flex items-center justify-center shrink-0 rounded-lg">
                             {getPeriodIcon(slot.period)}
                           </div>
-                          <div className="min-w-0">
-                            <div className="font-display text-base font-bold text-[#0F172A] truncate">
+                          <div className="min-w-0 flex-1">
+                            <div className="font-display text-sm sm:text-base font-bold text-[#0F172A] leading-snug tabular-nums">
                               {slot.time}
                             </div>
-                            <div className="text-xs text-[#64748b] font-medium">
+                            <div className="text-[11px] sm:text-xs text-[#64748b] font-medium mt-0.5">
                               {slot.period} শিফট • {slot.periodEn}
                             </div>
                           </div>
@@ -330,7 +330,7 @@ export function ScheduleSection() {
                         {/* Status Badge */}
                         <div className="shrink-0">
                           <span
-                            className={`inline-flex items-center text-xs font-bold px-3 py-1 rounded-full border ${
+                            className={`inline-flex items-center text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border whitespace-nowrap ${
                               slot.status === "সীমিত আসন"
                                 ? "bg-[#FFF3E0] border-[#FFB74D] text-[#E65100]"
                                 : slot.status === "নতুন ব্যাচ শুরু"
@@ -349,7 +349,7 @@ export function ScheduleSection() {
             </div>
 
             {/* Deduplicated Section Assurance Footer */}
-            <div className="mt-8 pt-5 border-t border-[#e2e8f0] flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-[#64748b]">
+            <div className="mt-6 sm:mt-8 pt-5 border-t border-[#e2e8f0] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs text-[#64748b]">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
                 <span className="font-medium text-[#0F172A]">
@@ -370,19 +370,19 @@ export function ScheduleSection() {
           <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
           <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
 
-          <div className="border border-[#e2e8f0] bg-white p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
+          <div className="border border-[#e2e8f0] bg-white p-4 sm:p-6 md:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left shadow-xs">
             <div>
-              <div className="font-bold text-base text-[#0F172A]">
+              <div className="font-bold text-sm sm:text-base text-[#0F172A]">
                 আপনার পছন্দের সময়ে ব্যাচের আসন খালি আছে কিনা নিশ্চিত নন?
               </div>
               <div className="text-xs text-[#64748b] mt-1">
                 সরাসরি নয়ন স্যারের সাথে ফোনে কথা বলে আপনার কলেজ শিডিউলের সাথে মিলিয়ে নিন।
               </div>
             </div>
-            <a href="tel:01780616187">
+            <a href="tel:01780616187" className="w-full sm:w-auto">
               <Button
                 size="sm"
-                className="gap-2 bg-[#0D47A1] text-white hover:bg-[#0B3D91] px-5 py-2.5 text-xs font-bold shrink-0 rounded-none shadow-sm"
+                className="w-full sm:w-auto gap-2 bg-[#0D47A1] text-white hover:bg-[#0B3D91] px-5 py-2.5 text-xs font-bold shrink-0 rounded-none shadow-sm"
               >
                 <Phone className="h-3.5 w-3.5 text-[#FFB74D]" />
                 <span>০১৭৮০-৬১৬১৮৭ নম্বরে সরাসরি কল দিন</span>

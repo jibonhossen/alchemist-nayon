@@ -112,6 +112,10 @@
     transform: none !important;
     transition: none !important;
   }
+  .animate-marquee-vertical {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 /* Chemical pulse animation */

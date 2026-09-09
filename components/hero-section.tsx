@@ -40,24 +40,9 @@ export function HeroSection() {
 
             <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/95 px-3.5 py-1 text-xs font-semibold text-slate-700 shadow-2xs backdrop-blur-sm">
               <span className="text-amber-400">★★★★★</span>
-              <span className="font-bold text-[#0F172A] inline-flex items-center">
-                <NumberTicker
-                  value={4.9}
-                  format={() => "৪.৯"}
-                  duration={0.8}
-                />
-                <span>/৫</span>
-              </span>
+
               <span className="text-slate-300">•</span>
-              <span className="text-[#64748b] inline-flex items-center gap-1">
-                <NumberTicker
-                  value={1200}
-                  locale="bn-BD"
-                  suffix="+"
-                  duration={1.0}
-                />
-                <span>শিক্ষার্থীর আস্থা</span>
-              </span>
+              <span className="text-[#64748b]">1800+ শিক্ষার্থীর আস্থা</span>
             </div>
           </div>
 

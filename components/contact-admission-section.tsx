@@ -9,6 +9,9 @@ import {
   CheckCircle2,
   HelpCircle,
   Sparkles,
+  Navigation,
+  Compass,
+  ExternalLink,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -41,88 +44,181 @@ export function ContactAdmissionSection() {
   return (
     <section
       id="contact"
-      className="bg-white py-20 md:py-28 border-b border-[#e2e8f0]"
+      className="relative bg-white py-20 md:py-28 border-b border-[#e2e8f0]"
     >
+      {/* Background ambient technical grid glow */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/4 -right-24 h-96 w-96 rounded-full bg-[#0D47A1]/5 blur-3xl" />
+        <div className="absolute bottom-10 -left-20 h-96 w-96 rounded-full bg-[#F57C00]/5 blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: `radial-gradient(#0D47A1 1px, transparent 1px)`,
+            backgroundSize: "24px 24px",
+          }}
+        />
+      </div>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col items-start max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB74D] bg-[#FFF3E0] px-4 py-1 text-xs font-bold text-[#E65100] mb-3 shadow-xs">
+        {/* Section Header (Technical Editorial Style) */}
+        <div className="flex flex-col items-start max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB74D] bg-[#FFF3E0] px-3.5 py-1 text-xs font-bold text-[#E65100] mb-3.5">
             <MapPin className="h-3.5 w-3.5 text-[#F57C00]" />
             <span>সরাসরি যোগাযোগ ও ক্যাম্পাস পরিদর্শন</span>
           </div>
-          <h2 className="font-display text-3xl font-black tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl leading-tight">
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl leading-[1.18]">
             ক্যাম্পাসে আসুন অথবা সরাসরি ফোনে কথা বলুন
           </h2>
-          <p className="mt-3 text-base text-[#475569] leading-relaxed">
+          <p className="mt-4 text-base text-[#475569] leading-relaxed">
             সীমিত আসন সংখ্যা। সরাসরি কোচিং সেন্টারে এসে অথবা নয়ন স্যারের অফিশিয়াল নম্বরে কল করে আপনার পছন্দের ব্যাচে আসন নিশ্চিত করুন।
           </p>
         </div>
 
-        {/* Campus Visit & Direct Contact Hub (No Web Form) */}
-        <div className="rounded-[26px] border-2 border-[#0D47A1]/20 bg-gradient-to-br from-white via-[#F0F7FF] to-[#FFF3E0] p-6 md:p-10 shadow-xl shadow-[#0D47A1]/5 mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Campus Landmark & Address (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center justify-between border-b border-[#0D47A1]/15 pb-4">
+        {/* Technical Blueprint Grid (Campus & Admission Hub) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-16">
+          {/* Card 1: Campus Identity & Location Architecture */}
+          <div className="relative flex flex-col h-full">
+            {/* Cloudflare-style corner anchor nodes */}
+            <span className="absolute -top-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -top-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+
+            {/* Container with Hairline Dividers */}
+            <div className="border border-[#e2e8f0] bg-white divide-y divide-[#e2e8f0] shadow-xs flex-1 flex flex-col">
+              {/* Header block */}
+              <div className="p-6 sm:p-8 bg-[#F8FAFC]/50 flex items-center justify-between gap-4">
                 <div>
-                  <div className="text-xs font-black uppercase tracking-wider text-[#F57C00]">
-                    অফিসিয়াল ক্যাম্পাস
-                  </div>
-                  <h3 className="font-display text-2xl font-black text-[#0D47A1] mt-0.5">
-                    আলকেমিস্ট কেমিস্ট্রি কেয়ার, যশোর
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#0D47A1] bg-[#F0F7FF] px-2.5 py-0.5 border border-[#0D47A1]/20 inline-block mb-1.5">
+                    অফিসিয়াল ক্যাম্পাস
+                  </span>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
+                    আলকেমিস্ট কেমিস্ট্রি কেয়ার, যশোর
                   </h3>
                 </div>
-                <div className="h-11 w-11 rounded-full bg-[#0D47A1] text-white flex items-center justify-center shrink-0 shadow-md">
-                  <MapPin className="h-5 w-5 text-[#FFB74D]" />
+                <div className="h-11 w-11 shrink-0 rounded-lg border border-[#e2e8f0] bg-white text-[#0D47A1] flex items-center justify-center shadow-2xs">
+                  <MapPin className="h-5 w-5 stroke-[2.2]" />
                 </div>
               </div>
 
-              {/* Exact Location Card */}
-              <div className="rounded-2xl border border-[#0D47A1]/20 bg-white p-5 shadow-xs">
-                <div className="text-xs font-bold text-[#0D47A1] mb-1">ক্যাম্পাস অবস্থান:</div>
-                <div className="font-display text-lg font-black text-[#0F172A]">
-                  এসপি বাংলো গেটের বিপরীতে, আরবপুর, যশোর
-                </div>
-                <div className="text-xs font-medium text-[#64748b] mt-1">
-                  (মূল সড়কসংলগ্ন ভবনের ২য় তলা, আলকেমিস্ট স্মার্ট ক্লাসরুম)
+              {/* Item: Campus Location */}
+              <div className="p-6 sm:p-8 transition-colors duration-150 hover:bg-[#F8FAFC]">
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#e2e8f0] bg-white text-[#F57C00] shadow-2xs mt-0.5">
+                    <Navigation className="h-5 w-5 stroke-[2.2]" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-[#64748b] uppercase tracking-wide">
+                      ক্যাম্পাস অবস্থান ও ঠিকানা
+                    </div>
+                    <div className="font-display text-lg sm:text-xl font-bold text-[#0F172A] mt-1 leading-snug">
+                      এসপি বাংলো গেটের বিপরীতে, আরবপুর, যশোর
+                    </div>
+                    <p className="mt-2 text-sm text-[#475569] leading-relaxed">
+                      মূল সড়কসংলগ্ন ভবনের ২য় তলা, আলকেমিস্ট স্মার্ট ক্লাসরুম (যশোর শহরের আরবপুর মোড়ে এসপি বাংলো গেটের ঠিক উল্টো পাশে)।
+                    </p>
+                  </div>
                 </div>
               </div>
 
+              {/* Item: Operating Hours */}
+              <div className="p-6 sm:p-8 transition-colors duration-150 hover:bg-[#F8FAFC]">
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#e2e8f0] bg-white text-[#0288D1] shadow-2xs mt-0.5">
+                    <Clock className="h-5 w-5 stroke-[2.2]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className="text-xs font-bold text-[#64748b] uppercase tracking-wide">
+                        অফিস ও ক্লাসরুম খোলা
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 border border-emerald-200">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        সার্বক্ষণিক উন্মুক্ত
+                      </span>
+                    </div>
+                    <div className="font-display text-lg sm:text-xl font-bold text-[#0F172A] mt-1">
+                      প্রতিদিন সকাল ৭:০০ টা হতে রাত ৯:০০ টা পর্যন্ত
+                    </div>
+                    <p className="mt-2 text-sm text-[#475569] leading-relaxed">
+                      অভিভাবক ও শিক্ষার্থীরা যেকোনো দিন সরাসরি এসে ক্লাসরুম পরিবেশ পরিদর্শন ও নয়ন স্যারের সাথে আলোচনা করতে পারেন।
+                    </p>
+                  </div>
+                </div>
+              </div>
 
+              {/* Footer item: Navigation action */}
+              <div className="p-6 sm:p-8 mt-auto bg-[#F8FAFC]/40">
+                <a
+                  href="https://maps.google.com/?q=Arabpur,+Jashore,+Bangladesh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#0D47A1]/20 bg-[#F0F7FF] px-4 py-3 text-sm font-bold text-[#0D47A1] hover:bg-[#0D47A1] hover:text-white transition-all duration-150 active:scale-[0.98] shadow-2xs"
+                >
+                  <Compass className="h-4 w-4" />
+                  <span>গুগল ম্যাপে লোকেশন ও ডিরেকশন দেখুন</span>
+                  <ExternalLink className="h-3.5 w-3.5 ml-1 opacity-70" />
+                </a>
+              </div>
             </div>
+          </div>
 
-            {/* Right Column: Instant Call & Hours Hub (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-5 rounded-2xl border border-[#0D47A1]/20 bg-white p-6 shadow-sm">
-              <div>
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF3E0] border border-[#FFB74D] px-3 py-0.5 text-xs font-bold text-[#E65100] mb-3">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  <span>সরাসরি ভর্তি সহায়তা</span>
+          {/* Card 2: Direct Admission Desk & Helpline Architecture */}
+          <div className="relative flex flex-col h-full">
+            {/* Cloudflare-style corner anchor nodes */}
+            <span className="absolute -top-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -top-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+
+            {/* Container with Hairline Dividers */}
+            <div className="border border-[#e2e8f0] bg-white divide-y divide-[#e2e8f0] shadow-xs flex-1 flex flex-col">
+              {/* Header block */}
+              <div className="p-6 sm:p-8 bg-[#F8FAFC]/50 flex items-center justify-between gap-4">
+                <div>
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#E65100] bg-[#FFF3E0] px-2.5 py-0.5 border border-[#FFB74D]/30 inline-block mb-1.5">
+                    সরাসরি ভর্তি সহায়তা
+                  </span>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
+                    ভর্তি সংক্রান্ত পরামর্শে কথা বলুন
+                  </h3>
                 </div>
-                <h4 className="font-display text-xl font-black text-[#0F172A]">
-                  ভর্তি সংক্রান্ত পরামর্শে কথা বলুন
-                </h4>
-                <p className="text-xs text-[#64748b] mt-1.5 leading-relaxed">
-                  ব্যাচের আসন সংখ্যা ও সময়সূচি নিশ্চিত করতে নয়ন স্যারের সাথে সরাসরি যোগাযোগ করুন।
-                </p>
+                <div className="h-11 w-11 shrink-0 rounded-lg border border-[#e2e8f0] bg-white text-[#E65100] flex items-center justify-center shadow-2xs">
+                  <Sparkles className="h-5 w-5 stroke-[2.2] text-[#F57C00]" />
+                </div>
               </div>
 
-              {/* Operating Hours Box */}
-              <div className="rounded-xl bg-[#F0F7FF] border border-[#0D47A1]/15 p-4 text-xs space-y-2">
-                <div className="flex items-center gap-2 font-bold text-[#0D47A1]">
-                  <Clock className="h-4 w-4 text-[#F57C00]" />
-                  <span>অফিস ও ক্লাসরুম খোলা:</span>
-                </div>
-                <div className="text-[#475569] pl-6 font-medium">
-                  প্রতিদিন সকাল ৭:০০ টা হতে রাত ৯:০০ টা পর্যন্ত
+              {/* Item: Hotline & Contact Details */}
+              <div className="p-6 sm:p-8 transition-colors duration-150 hover:bg-[#F8FAFC]">
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#e2e8f0] bg-white text-[#0D47A1] shadow-2xs mt-0.5">
+                    <Phone className="h-5 w-5 stroke-[2.2]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className="text-xs font-bold text-[#64748b] uppercase tracking-wide">
+                        অফিশিয়াল হেল্পলাইন
+                      </div>
+                      <span className="font-mono text-[11px] font-semibold bg-[#F0F7FF] text-[#0D47A1] px-2.5 py-0.5 border border-[#0D47A1]/20">
+                        সরাসরি শিক্ষক লাইন
+                      </span>
+                    </div>
+                    <div className="font-display text-2xl sm:text-3xl font-black text-[#0F172A] mt-1 font-mono tracking-tight">
+                      ০১৭৮০-৬১৬১৮৭
+                    </div>
+                    <p className="mt-2 text-sm text-[#475569] leading-relaxed">
+                      ব্যাচের আসন সংখ্যা ও সময়সূচি নিশ্চিত করতে নয়ন স্যারের সাথে সরাসরি যোগাযোগ করুন।
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* Direct Action Buttons */}
-              <div className="space-y-3 pt-2">
+              {/* Item: Tactile Action Buttons */}
+              <div className="p-6 sm:p-8 space-y-3">
                 <a href="tel:01780616187" className="block w-full">
                   <Button
                     size="lg"
-                    className="w-full gap-2.5 rounded-full bg-[#0D47A1] hover:bg-[#0B3D91] text-white py-3.5 text-sm font-bold shadow-md shadow-[#0D47A1]/25 active:scale-[0.98] transition-all"
+                    className="w-full gap-2.5 rounded-lg bg-[#0D47A1] hover:bg-[#0B3D91] text-white py-3.5 text-sm font-bold shadow-xs active:scale-[0.98] transition-all"
                   >
                     <Phone className="h-4 w-4 text-[#FFB74D]" />
                     <span>সরাসরি কল দিন: ০১৭৮০-৬১৬১৮৭</span>
@@ -138,7 +234,7 @@ export function ContactAdmissionSection() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full gap-2.5 rounded-full border-2 border-emerald-600/30 bg-emerald-50/50 hover:bg-emerald-100/60 text-emerald-800 hover:border-emerald-600 py-3.5 text-sm font-bold active:scale-[0.98] transition-all"
+                    className="w-full gap-2.5 rounded-lg border border-emerald-600/30 bg-emerald-50/50 hover:bg-emerald-100/70 text-emerald-800 hover:border-emerald-600 py-3.5 text-sm font-bold active:scale-[0.98] transition-all"
                   >
                     <MessageCircle className="h-4 w-4 text-emerald-600" />
                     <span>WhatsApp-এ মেসেজ পাঠান</span>
@@ -146,40 +242,71 @@ export function ContactAdmissionSection() {
                 </a>
               </div>
 
-              <div className="text-[11px] text-center text-[#64748b] flex items-center justify-center gap-1.5 pt-1">
-                <CheckCircle2 className="h-3.5 w-3.5 text-[#0D47A1]" />
-                <span>অভিভাবক ও শিক্ষার্থীদের সরাসরি কথা বলার সুযোগ</span>
+              {/* Footer item: Trust note */}
+              <div className="p-4 sm:p-5 mt-auto bg-[#F8FAFC]/60 text-xs text-[#64748b] flex items-center justify-center gap-2 border-t border-[#e2e8f0]">
+                <CheckCircle2 className="h-4 w-4 text-[#0D47A1] shrink-0" />
+                <span className="font-medium">অভিভাবক ও শিক্ষার্থীদের সরাসরি নয়ন স্যারের সাথে কথা বলার নিশ্চয়তা</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Frequently Asked Questions */}
-        <div className="pt-8 border-t border-[#e2e8f0]">
+        {/* Frequently Asked Questions (Technical Blueprint Style) */}
+        <div className="pt-8">
           <div className="max-w-2xl mb-8">
-            <h3 className="font-display text-2xl font-black text-[#0F172A]">
-              সাধারণ জিজ্ঞাসা (Frequently Asked Questions)
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#e2e8f0] bg-[#F8FAFC] px-3.5 py-1 text-xs font-bold text-[#475569] mb-3">
+              <HelpCircle className="h-3.5 w-3.5 text-[#F57C00]" />
+              <span>সাধারণ জিজ্ঞাসা</span>
+            </div>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#0F172A] tracking-tight">
+              সচরাচর জানতে চাওয়া প্রশ্নসমূহ
             </h3>
-            <p className="text-xs text-[#64748b] mt-1">
+            <p className="text-sm text-[#64748b] mt-1.5 leading-relaxed">
               ভর্তি ও ব্যাচ সংক্রান্ত সাধারণ প্রশ্নগুলোর স্পষ্ট উত্তর।
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-[#e2e8f0] bg-[#f8fafc] p-5 hover:border-[#0D47A1]/40 transition-colors"
-              >
-                <div className="font-bold text-sm text-[#0F172A] mb-2 flex items-start gap-2">
-                  <HelpCircle className="h-4 w-4 text-[#F57C00] shrink-0 mt-0.5" />
-                  <span>{faq.q}</span>
-                </div>
-                <p className="text-xs text-[#475569] leading-relaxed pl-6">
-                  {faq.a}
-                </p>
+          <div className="relative">
+            {/* Blueprint corner anchor nodes */}
+            <span className="absolute -top-1.5 -left-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -top-1.5 -right-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
+
+            <div className="border border-[#e2e8f0] bg-white divide-y divide-[#e2e8f0] shadow-xs">
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#e2e8f0]">
+                {faqs.slice(0, 2).map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 sm:p-7 transition-colors duration-150 hover:bg-[#F8FAFC]"
+                  >
+                    <div className="font-bold text-base text-[#0F172A] mb-2.5 flex items-start gap-2.5">
+                      <HelpCircle className="h-4.5 w-4.5 text-[#F57C00] shrink-0 mt-0.5" />
+                      <span>{faq.q}</span>
+                    </div>
+                    <p className="text-sm text-[#475569] leading-relaxed pl-7">
+                      {faq.a}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#e2e8f0]">
+                {faqs.slice(2, 4).map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 sm:p-7 transition-colors duration-150 hover:bg-[#F8FAFC]"
+                  >
+                    <div className="font-bold text-base text-[#0F172A] mb-2.5 flex items-start gap-2.5">
+                      <HelpCircle className="h-4.5 w-4.5 text-[#F57C00] shrink-0 mt-0.5" />
+                      <span>{faq.q}</span>
+                    </div>
+                    <p className="text-sm text-[#475569] leading-relaxed pl-7">
+                      {faq.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

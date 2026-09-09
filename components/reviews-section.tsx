@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Quote, MessageSquare } from "lucide-react"
+import { Star, MessageSquare, CheckCircle2 } from "lucide-react"
 
 interface Review {
   name: string
@@ -130,40 +130,74 @@ const column3: Review[] = [
 ]
 
 function ReviewCard({ review }: { review: Review }) {
+  const isGuardian = review.batch.includes("অভিভাবক")
+
   return (
-    <div className="rounded-2xl border border-[#e2e8f0] bg-white p-6 shadow-xs hover:shadow-md hover:border-[#0D47A1]/30 transition-all duration-200 flex flex-col justify-between">
+    <article
+      aria-label={`${review.name} এর মূল্যায়ন`}
+      className="group/card rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-[0_2px_12px_-3px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-[#0D47A1]/35 transition-[border-color,box-shadow,transform] duration-200 ease-out flex flex-col justify-between select-text"
+    >
       <div>
-        <Quote className="h-5 w-5 text-[#F57C00]/40 mb-3" />
-        <p className="text-sm font-normal text-[#334155] leading-relaxed">
+        {/* Header: Star Rating & Batch Pill (Visible on all viewports) */}
+        <div className="flex items-center justify-between gap-2 mb-3.5">
+          <div
+            className="flex items-center gap-1 text-amber-500"
+            aria-label="৫ এর মধ্যে ৫ স্টার রেটিং"
+          >
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="h-3.5 w-3.5 fill-amber-400 text-amber-500"
+                aria-hidden="true"
+              />
+            ))}
+            <span className="text-xs font-bold text-slate-700 ml-1">৫.০</span>
+          </div>
+
+          <span
+            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold border shrink-0 ${
+              isGuardian
+                ? "bg-[#FFF3E0] border-[#FFB74D] text-[#E65100]"
+                : "bg-[#F0F7FF] border-[#0D47A1]/20 text-[#0D47A1]"
+            }`}
+          >
+            {review.batch}
+          </span>
+        </div>
+
+        {/* Testimonial Quote with high-contrast, comfortable leading */}
+        <p className="text-[13.5px] sm:text-sm font-normal text-slate-800 leading-[1.7] text-wrap-pretty">
           &ldquo;{review.comment}&rdquo;
         </p>
       </div>
 
-      <div className="mt-6 pt-4 border-t border-[#f1f5f9] flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div
-            className={`h-9 w-9 rounded-full flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs ${review.avatarColor}`}
-          >
-            {review.name.slice(0, 1)}
-          </div>
-          <div>
-            <div className="font-bold text-sm text-[#0F172A] leading-snug">
+      {/* Author Footer */}
+      <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center gap-3">
+        <div
+          aria-hidden="true"
+          className={`h-9 w-9 rounded-full flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs ${review.avatarColor}`}
+        >
+          {review.name.slice(0, 1)}
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-1.5">
+            <span className="font-bold text-xs sm:text-sm text-slate-900 leading-snug truncate">
               {review.name}
-            </div>
-            <div className="text-[11px] font-medium text-[#64748b]">
-              {review.role}
-            </div>
-            <div className="text-[11px] text-[#94a3b8]">
-              {review.institute}
-            </div>
+            </span>
+            <CheckCircle2
+              className="h-3 w-3 text-emerald-600 shrink-0"
+              aria-label="যাচাইকৃত মূল্যায়ন"
+            />
+          </div>
+          <div className="text-xs font-medium text-[#0D47A1] truncate">
+            {review.role}
+          </div>
+          <div className="text-xs text-slate-500 truncate">
+            {review.institute}
           </div>
         </div>
-
-        <span className="hidden sm:inline-block rounded-full bg-[#F0F7FF] border border-[#0D47A1]/20 px-2.5 py-0.5 text-[10px] font-bold text-[#0D47A1] shrink-0">
-          {review.batch}
-        </span>
       </div>
-    </div>
+    </article>
   )
 }
 
@@ -190,9 +224,9 @@ export function ReviewsSection() {
 
         {/* 21st.dev Testimonials Columns (Continuous Auto Infinite Moving) */}
         <div className="relative h-[620px] md:h-[680px] overflow-hidden">
-          {/* Smooth Gradient Masks Top & Bottom */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white via-white/80 to-transparent z-20" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/80 to-transparent z-20" />
+          {/* Smooth Gradient Masks Top & Bottom (Optimized to h-14 sm:h-24 to prevent mobile text clipping) */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-14 sm:h-24 bg-gradient-to-b from-white via-white/80 to-transparent z-20" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 sm:h-24 bg-gradient-to-t from-white via-white/80 to-transparent z-20" />
 
           {/* 3 Infinite Moving Columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-full">
