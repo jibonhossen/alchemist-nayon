@@ -3,7 +3,7 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin, Phone, MessageCircle, Heart, ArrowUp } from "lucide-react"
+import { MapPin, Phone, ArrowUp } from "lucide-react"
 
 export function Footer() {
   const scrollToTop = () => {
@@ -11,163 +11,123 @@ export function Footer() {
   }
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-900 text-slate-300 pb-20 sm:pb-8 dark:border-slate-800 dark:bg-black">
-      <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {/* Col 1: Logo & Vision */}
-          <div className="flex flex-col gap-4">
+    <footer className="bg-[#17171c] text-white pb-20 sm:pb-10 pt-16 border-t border-[#2a2a30]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 pb-14 border-b border-white/10">
+          {/* Col 1: Brand & Mantra (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-orange-500/50 bg-white shadow-xs outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10">
+              <div className="relative h-11 w-11 overflow-hidden rounded-full border border-white/20 bg-white p-0.5 shrink-0">
                 <Image
                   src="/assets/logo.png"
                   alt="Alchemist Logo"
-                  width={48}
-                  height={48}
-                  className="h-full w-full object-cover"
+                  width={44}
+                  height={44}
+                  className="h-full w-full rounded-full object-cover"
                 />
               </div>
               <div>
-                <span className="text-xl font-black tracking-tight text-white">
-                  ALCHEMIST
+                <span className="font-display text-xl font-bold tracking-tight text-white">
+                  ALCHEMIST NAYON
                 </span>
-                <p className="text-[10px] font-bold tracking-wider text-orange-400">
+                <p className="text-[10px] font-semibold tracking-wider text-[#ff7759]">
                   HSC & HONOURS CHEMISTRY CARE
                 </p>
               </div>
             </div>
 
-            <p className="text-xs leading-relaxed text-slate-400">
+            <p className="text-xs leading-relaxed text-[#93939f] max-w-sm">
               &ldquo;Experiment is my passion 🔬, Teaching is my mission 🎯&rdquo;
               <br />
-              যশোরে রসায়নের আধুনিক ডিজিটাল লার্নিং ও বোর্ড/অ্যাডমিশন প্রস্তুতির বিশ্বস্ত ঠিকানা।
+              যশোরে রসায়নের আধুনিক ডিজিটাল স্মার্ট ক্লাসরুমে বোর্ড বই ও অ্যাডমিশন প্রস্তুতির বিশ্বস্ত একাডেমি।
             </p>
 
-            <span className="text-xs font-semibold text-orange-400">
-              পরিকল্পিত পড়াশোনা, সফলতার নিশ্চয়তা।
-            </span>
+            <div className="text-xs text-white/80 font-medium">
+              পরিচালনায়: <strong className="text-white">মোহাম্মদ নয়ন স্যার</strong> (বি.এস.সি অনার্স, এম.এস.সি রসায়ন)
+            </div>
           </div>
 
-          {/* Col 2: Batches & Programs */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-              চলমান ব্যাচসমূহ
+          {/* Col 2: Routine & Programs (3 cols) */}
+          <div className="lg:col-span-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
+              প্রোগ্রাম ও ব্যাচসমূহ
             </h4>
-            <ul className="mt-4 flex flex-col gap-2.5 text-xs text-slate-400">
+            <ul className="flex flex-col gap-2 text-xs text-[#93939f]">
               <li>
-                <Link href="#schedule" className="hover:text-orange-400">
-                  • HSC-2027 রসায়ন ১ম ও ২য় পত্র
+                <Link href="#schedule" className="hover:text-white transition-colors">
+                  • HSC 2027 একাদশ ও দ্বাদশ ব্যাচ
                 </Link>
               </li>
               <li>
-                <Link href="#schedule" className="hover:text-orange-400">
-                  • HSC-2028 নতুন ব্যাচ (শুরু হচ্ছে)
+                <Link href="#schedule" className="hover:text-white transition-colors">
+                  • HSC 2028 নতুন ফাউন্ডেশন ব্যাচ
                 </Link>
               </li>
               <li>
-                <Link href="#schedule" className="hover:text-orange-400">
-                  • অনার্স (মেজর ও নন-মেজর) কেমিস্ট্রি
+                <Link href="#schedule" className="hover:text-white transition-colors">
+                  • অনার্স (১ম, ২য় ও ৩য় বর্ষ) কেমিস্ট্রি
                 </Link>
               </li>
               <li>
-                <Link href="#schedule" className="hover:text-orange-400">
-                  • মেডিকেল ও ইঞ্জিনিয়ারিং কেমিস্ট্রি কেয়ার
+                <Link href="#schedule" className="hover:text-white transition-colors">
+                  • মেডিকেল ও ইঞ্জিনিয়ারিং কেয়ার
                 </Link>
               </li>
               <li>
-                <Link href="#schedule" className="hover:text-orange-400">
+                <Link href="#schedule" className="hover:text-white transition-colors">
                   • উইকেন্ড স্পেশাল ব্যাচ (শুক্র ও শনি)
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Quick Navigation */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-              নেভিগেশন (Quick Links)
+          {/* Col 3: Direct Campus & Phone (4 cols) */}
+          <div className="lg:col-span-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
+              ক্যাম্পাস অবস্থান ও কল
             </h4>
-            <ul className="mt-4 flex flex-col gap-2.5 text-xs text-slate-400">
-              <li>
-                <Link href="#home" className="hover:text-orange-400">
-                  হোম (Home)
-                </Link>
-              </li>
-              <li>
-                <Link href="#schedule" className="hover:text-orange-400">
-                  ক্লাস শিডিউল ও ব্যাচ (Schedule)
-                </Link>
-              </li>
-              <li>
-                <Link href="#hall-of-fame" className="hover:text-orange-400">
-                  সাফল্যের গৌরবগাথা ২০২৫ (Hall of Fame)
-                </Link>
-              </li>
-              <li>
-                <Link href="#features" className="hover:text-orange-400">
-                  কোচিংয়ের বৈশিষ্ট্য (Special Features)
-                </Link>
-              </li>
-              <li>
-                <Link href="#faculty" className="hover:text-orange-400">
-                  নয়ন স্যার পরিচিতি (Faculty)
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="hover:text-orange-400">
-                  ভর্তি আবেদন (Admission Form)
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <div className="flex flex-col gap-3 text-xs text-[#93939f]">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="h-4 w-4 text-[#ff7759] shrink-0 mt-0.5" />
+                <span>
+                  এসপি বাংলো গেটের বিপরীতে, আরবপুর, যশোর
+                  <br />
+                  <span className="text-[11px] text-white/60">
+                    (আরবপুর মোড় থেকে ১ মিনিট হাঁটার দূরত্ব)
+                  </span>
+                </span>
+              </div>
 
-          {/* Col 4: Contact & Center Location */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-              যোগাযোগ ও শাখা
-            </h4>
-            <div className="mt-4 flex flex-col gap-3 text-xs text-slate-400">
-              <div className="flex items-start gap-2">
-                <MapPin strokeWidth={1.5} className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
-                <span>এসপি বাংলো গেটের বিপরীতে, আরবপুর, যশোর।</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone strokeWidth={1.5} className="h-4 w-4 shrink-0 text-orange-400" />
+              <div className="flex items-center gap-2.5">
+                <Phone className="h-4 w-4 text-[#ff7759] shrink-0" />
                 <a
-                  href="tel:+8801780616187"
-                  className="font-bold text-white hover:text-orange-400"
+                  href="tel:01780616187"
+                  className="font-bold text-white hover:text-[#ff7759] transition-colors"
                 >
-                  +880 1780-616187
+                  ০১৭৮০-৬১৬১৮৭ (সরাসরি কল)
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <MessageCircle strokeWidth={1.5} className="h-4 w-4 shrink-0 text-emerald-400" />
-                <a
-                  href="https://wa.me/8801780616187"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:underline"
-                >
-                  WhatsApp: ০১৭৮০-৬১৬১৮৭
-                </a>
+
+              <div className="mt-2 text-[11px] text-white/70 bg-white/5 p-3 rounded-xl border border-white/10">
+                অফিস খোলা: প্রতিদিন সকাল ৭:০০ টা হতে রাত ৯:০০ টা পর্যন্ত
               </div>
             </div>
-
-            <button
-              onClick={scrollToTop}
-              className="mt-6 inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800 ps-3.5 pe-4 py-2 text-xs font-semibold text-slate-200 transition-[border-color,color,transform] duration-150 ease-out active:scale-[0.96] hover:border-orange-500 hover:text-white"
-            >
-              <ArrowUp className="h-3.5 w-3.5 text-orange-400" />
-              <span>উপরে ফিরে যান (Top)</span>
-            </button>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between border-t border-slate-800 pt-6 text-xs text-slate-500 sm:flex-row">
-          <p>© {new Date().getFullYear()} Alchemist Nayon. All rights reserved.</p>
-          <p className="mt-2 flex items-center gap-1 sm:mt-0">
-            HSC & Honours Chemistry Care • যশোর, বাংলাদেশ
-          </p>
+        {/* Bottom Strip */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#75758a]">
+          <div>
+            © {new Date().getFullYear()} Alchemist Nayon. সর্বস্বত্ব সংরক্ষিত।
+          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs text-white hover:bg-white/10 transition-colors cursor-pointer"
+          >
+            <span>উপরে যান</span>
+            <ArrowUp className="h-3 w-3" />
+          </button>
         </div>
       </div>
     </footer>

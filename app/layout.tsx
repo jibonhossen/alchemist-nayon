@@ -1,4 +1,4 @@
-import { Hind_Siliguri, Inter } from "next/font/google"
+import { Hind_Siliguri, Inter, Space_Grotesk } from "next/font/google"
 import type { Metadata, Viewport } from "next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -14,6 +14,13 @@ const hindSiliguri = Hind_Siliguri({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 })
 
@@ -41,7 +48,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0f2c59",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 }
@@ -55,10 +62,16 @@ export default function RootLayout({
     <html
       lang="bn"
       suppressHydrationWarning
-      className={cn("antialiased", hindSiliguri.variable, inter.variable, "font-sans")}
+      className={cn("antialiased light", hindSiliguri.variable, inter.variable, spaceGrotesk.variable, "font-sans")}
     >
-      <body className="min-h-screen bg-slate-50/70 text-slate-900 transition-colors dark:bg-[#070d1e] dark:text-slate-100">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <body className="min-h-screen bg-[#ffffff] text-[#212121] selection:bg-[#ff7759]/20 selection:text-[#17171c]">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          forcedTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>

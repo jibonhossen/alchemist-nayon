@@ -1,405 +1,455 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
 import {
   GraduationCap,
-  Award,
-  Sparkles,
+  Building2,
+  Search,
+  X,
   Stethoscope,
   Cpu,
-  Building2,
-  CheckCircle2,
-  ExternalLink,
-  ChevronRight,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { NumberTicker } from "@/components/motion/number-ticker"
 
 interface Student {
   name: string
   institute: string
-  category: "medical" | "engineering" | "university"
-  highlight?: string
+  category: "all" | "medical" | "engineering" | "university"
+  highlight: string
+  session: string
 }
 
 const students: Student[] = [
   // Medical
   {
     name: "শিফসা নাজনিন",
-    institute: "যশোর মেডিকেল কলেজ",
+    institute: "যশোর মেডিকেল কলেজ (JMC)",
     category: "medical",
-    highlight: "মেডিকেল চান্স",
+    highlight: "মেডিকেল ভর্তি",
+    session: "সেশন ২০২৩-২৪",
   },
   {
     name: "সিজাত মোর্তজা অয়ন",
     institute: "মাগুরা মেডিকেল কলেজ",
     category: "medical",
-    highlight: "মেডিকেল চান্স",
+    highlight: "মেডিকেল ভর্তি",
+    session: "সেশন ২০২৩-২৪",
   },
   {
     name: "জেনিফা তামার্না স্নিগ্ধা",
     institute: "কক্সবাজার মেডিকেল কলেজ",
     category: "medical",
-    highlight: "মেডিকেল চান্স",
+    highlight: "মেডিকেল ভর্তি",
+    session: "সেশন ২০২৩-২৪",
   },
   {
     name: "উম্মে কুলসুম তারিন",
     institute: "পটুয়াখালী মেডিকেল কলেজ",
     category: "medical",
-    highlight: "মেডিকেল চান্স",
+    highlight: "মেডিকেল ভর্তি",
+    session: "সেশন ২০২৩-২৪",
   },
   // Engineering
   {
     name: "এম. এম মাহিম",
-    institute: "কুয়েট (KUET)",
+    institute: "কুয়েট (KUET) - পুরকৌশল",
     category: "engineering",
     highlight: "ইঞ্জিনিয়ারিং",
+    session: "সেশন ২০২৩-২৪",
   },
   {
     name: "কুশল চন্দ্র পাল",
     institute: "শাবিপ্রবি (SUST)",
     category: "engineering",
-    highlight: "ইঞ্জিনিয়ারিং ও বিজ্ঞান",
+    highlight: "বিজ্ঞান ও প্রযুক্তি",
+    session: "সেশন ২০২৩-২৪",
   },
   {
     name: "পুষ্পিতা রায়",
     institute: "সরকারি টেক্সটাইল ইঞ্জিনিয়ারিং কলেজ",
     category: "engineering",
     highlight: "টেক্সটাইল ইঞ্জিনিয়ারিং",
+    session: "সেশন ২০২৩-২৪",
   },
-  // Top Public & Agri
+  // University
   {
     name: "মো: তাসনিম আলিফ",
-    institute: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
+    institute: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
     category: "university",
     highlight: "পাবলিক বিশ্ববিদ্যালয়",
+    session: "সেশন ২০২৩-২৪",
   },
   {
     name: "রিয়াজুল ইসলাম",
-    institute: "খুলনা বিশ্ববিদ্যালয়",
+    institute: "খুলনা বিশ্ববিদ্যালয় (KU)",
     category: "university",
     highlight: "পাবলিক বিশ্ববিদ্যালয়",
+    session: "সেশন ২০২৩-২৪",
   },
   {
     name: "ইরিনা জেরিন",
-    institute: "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
+    institute: "বাংলাদেশ কৃষি বিশ্ববিদ্যালয় (BAU)",
     category: "university",
-    highlight: "কৃষি বিশ্ববিদ্যালয়",
+    highlight: "কৃষি গুচ্ছ",
+    session: "সেশন ২০২৩-২৪",
   },
   {
     name: "কাজী সুমাইয়া",
-    institute: "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
+    institute: "বাংলাদেশ কৃষি বিশ্ববিদ্যালয় (BAU)",
     category: "university",
-    highlight: "কৃষি বিশ্ববিদ্যালয়",
+    highlight: "কৃষি গুচ্ছ",
+    session: "সেশন ২০২৩-২৪",
   },
   {
-    name: "মৌতথি জোবভী মিতু",
-    institute: "যবিপ্রবি (JUST)",
-    category: "university",
-    highlight: "বিজ্ঞান ও প্রযুক্তি",
-  },
-  {
-    name: "লামইয়া আক্তার",
-    institute: "যবিপ্রবি (JUST)",
-    category: "university",
-    highlight: "বিজ্ঞান ও প্রযুক্তি",
-  },
-  {
-    name: "তৈয়িবা ইয়াসমিন",
-    institute: "খুলনা কৃষি বিশ্ববিদ্যালয়",
-    category: "university",
-    highlight: "কৃষি বিশ্ববিদ্যালয়",
-  },
-  {
-    name: "সাইমা আক্তার",
-    institute: "খুলনা কৃষি বিশ্ববিদ্যালয়",
-    category: "university",
-    highlight: "কৃষি বিশ্ববিদ্যালয়",
-  },
-  {
-    name: "আফরিন আক্তার মিষ্টি",
-    institute: "চট্টগ্রাম বিশ্ববিদ্যালয়",
+    name: "সুমাইয়া খাতুন",
+    institute: "রাজশাহী বিশ্ববিদ্যালয় (RU)",
     category: "university",
     highlight: "পাবলিক বিশ্ববিদ্যালয়",
-  },
-  {
-    name: "সাদি আরাফাত জামান",
-    institute: "বরিশাল বিশ্ববিদ্যালয়",
-    category: "university",
-    highlight: "পাবলিক বিশ্ববিদ্যালয়",
-  },
-  {
-    name: "ইয়ামিন হোসেন",
-    institute: "বরিশাল বিশ্ববিদ্যালয়",
-    category: "university",
-    highlight: "পাবলিক বিশ্ববিদ্যালয়",
-  },
-  {
-    name: "ওয়ালিদ হুসাইন",
-    institute: "পবিপ্রবি (PSTU)",
-    category: "university",
-    highlight: "বিজ্ঞান ও প্রযুক্তি",
-  },
-  {
-    name: "সজনি খাতুন",
-    institute: "সুবিপ্রবি",
-    category: "university",
-    highlight: "বিজ্ঞান ও প্রযুক্তি",
-  },
-  {
-    name: "জাকিয়া সুলতানা",
-    institute: "গুচ্ছ বিশ্ববিদ্যালয়",
-    category: "university",
-    highlight: "জিএসটি গুচ্ছ",
-  },
-  {
-    name: "আফসানা",
-    institute: "গোবিপ্রবি",
-    category: "university",
-    highlight: "বিজ্ঞান ও প্রযুক্তি",
+    session: "সেশন ২০২৩-২৪",
   },
 ]
 
 export function HallOfFame() {
-  const [activeCategory, setActiveCategory] = React.useState<
-    "all" | "medical" | "engineering" | "university"
-  >("all")
-  const [showBannerModal, setShowBannerModal] = React.useState(false)
+  const [selectedFilter, setSelectedFilter] = React.useState<string>("all")
+  const [searchQuery, setSearchQuery] = React.useState("")
 
-  const filteredStudents =
-    activeCategory === "all"
-      ? students
-      : students.filter((s) => s.category === activeCategory)
+  const counts = React.useMemo(() => {
+    return {
+      all: students.length,
+      medical: students.filter((s) => s.category === "medical").length,
+      engineering: students.filter((s) => s.category === "engineering").length,
+      university: students.filter((s) => s.category === "university").length,
+    }
+  }, [])
+
+  const filteredStudents = students.filter((s) => {
+    const matchesFilter =
+      selectedFilter === "all" || s.category === selectedFilter
+    const matchesSearch =
+      s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      s.institute.toLowerCase().includes(searchQuery.toLowerCase())
+    return matchesFilter && matchesSearch
+  })
+
+  const filterOptions = [
+    { label: "সকল কৃতি শিক্ষার্থী", shortLabel: "সকল", value: "all", count: counts.all },
+    { label: "মেডিকেল ভর্তি", shortLabel: "মেডিকেল", value: "medical", count: counts.medical },
+    { label: "ইঞ্জিনিয়ারিং", shortLabel: "ইঞ্জিনিয়ারিং", value: "engineering", count: counts.engineering },
+    { label: "পাবলিক বিশ্ববিদ্যালয়", shortLabel: "বিশ্ববিদ্যালয়", value: "university", count: counts.university },
+  ]
 
   return (
     <section
       id="hall-of-fame"
-      className="relative overflow-hidden bg-slate-50/80 py-20 dark:bg-[#081026]"
+      className="bg-white py-12 md:py-24 pb-28 md:pb-24 border-b border-[#e5e7eb]"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center">
-          <Badge
-            variant="alchemist"
-            className="mb-3 gap-1.5 px-3.5 py-1 text-xs font-semibold"
-          >
-            <Award className="h-3.5 w-3.5 text-orange-500" />
-            <span>সাফল্যের গৌরবগাথা (Hall of Fame)</span>
-          </Badge>
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            ২০২৫ সালে চান্সপ্রাপ্ত শিক্ষার্থীদের একাংশ
+        <div className="flex flex-col items-start max-w-3xl mb-8 md:mb-12">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#ffad9b] bg-[#fff4f1] px-3 py-0.5 text-xs font-semibold text-[#ff7759] mb-2.5 sm:mb-3">
+            <GraduationCap className="h-3.5 w-3.5" />
+            <span>সাফল্যের ইতিহাস ও হল অব ফেম</span>
+          </div>
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#17171c] leading-tight">
+            আলকেমিস্ট নয়ন স্যারের কৃতী শিক্ষার্থীদের বিজয়গাথা
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm font-medium text-slate-600 sm:text-base dark:text-slate-300">
-            পরিকল্পিত পড়াশোনা ও আলকেমিস্ট কেমিস্ট্রি কেয়ারের সঠিক নির্দেশনায় আমাদের শিক্ষার্থীরা জায়গা করে নিয়েছে দেশের সেরা মেডিকেল, ইঞ্জিনিয়ারিং ও পাবলিক বিশ্ববিদ্যালয়ে।
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-[#616161] leading-relaxed">
+            মেডিকেল কলেজ, বুয়েট-কুয়েট এবং দেশের শীর্ষ পাবলিক বিশ্ববিদ্যালয়ের বিজ্ঞান অনুষদে চান্স পাওয়া আলকেমিস্ট শিক্ষার্থীদের একাংশ।
           </p>
         </div>
 
-        {/* Success Metrics Badges */}
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div className="flex flex-col items-center rounded-2xl border border-red-200/80 bg-red-50/60 p-4 text-center dark:border-red-950 dark:bg-red-950/30">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-100 text-red-600 dark:bg-red-900/50 dark:text-red-400">
-              <Stethoscope className="h-5 w-5" />
-            </div>
-            <div className="mt-2 text-2xl font-black text-red-700 dark:text-red-400">
-              ৪+
-            </div>
-            <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-              সরকারি মেডিকেল কলেজ
-            </div>
-          </div>
+        {/* Cloudflare-Style Technical Blueprint Stat Strip (Matching Hero Section Design) */}
+        <div className="relative mb-8 sm:mb-12 w-full">
+          {/* Blueprint corner anchor nodes */}
+          <span className="absolute -top-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+          <span className="absolute -top-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+          <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+          <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
 
-          <div className="flex flex-col items-center rounded-2xl border border-blue-200/80 bg-blue-50/60 p-4 text-center dark:border-blue-950 dark:bg-blue-950/30">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-[#0F2C59] dark:bg-blue-900/50 dark:text-blue-300">
-              <Cpu className="h-5 w-5" />
-            </div>
-            <div className="mt-2 text-2xl font-black text-[#0F2C59] dark:text-blue-300">
-              ৩+
-            </div>
-            <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-              কুয়েট ও ইঞ্জিনিয়ারিং
-            </div>
-          </div>
+          {/* Mobile center blueprint intersection node */}
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white sm:hidden pointer-events-none" />
 
-          <div className="flex flex-col items-center rounded-2xl border border-emerald-200/80 bg-emerald-50/60 p-4 text-center dark:border-emerald-950 dark:bg-emerald-950/30">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 dark:bg-emerald-900/50 dark:text-emerald-400">
-              <Building2 className="h-5 w-5" />
-            </div>
-            <div className="mt-2 text-2xl font-black text-emerald-700 dark:text-emerald-400">
-              ১৫+
-            </div>
-            <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-              শীর্ষ পাবলিক ও কৃষি ভার্সিটি
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center rounded-2xl border border-orange-200/80 bg-orange-50/60 p-4 text-center dark:border-orange-950 dark:bg-orange-950/30">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-100 text-orange-600 dark:bg-orange-900/50 dark:text-orange-400">
-              <Sparkles className="h-5 w-5" />
-            </div>
-            <div className="mt-2 text-2xl font-black text-orange-600 dark:text-orange-400">
-              ১০০%
-            </div>
-            <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-              বোর্ড এ+ পাশের নিশ্চয়তা
-            </div>
-          </div>
-        </div>
-
-        {/* Category Filter Pills */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          <Button
-            size="sm"
-            variant={activeCategory === "all" ? "default" : "outline"}
-            onClick={() => setActiveCategory("all")}
-            className="rounded-full text-xs font-semibold"
-          >
-            সকল চান্সপ্রাপ্ত ({students.length})
-          </Button>
-          <Button
-            size="sm"
-            variant={activeCategory === "medical" ? "default" : "outline"}
-            onClick={() => setActiveCategory("medical")}
-            className="rounded-full text-xs font-semibold"
-          >
-            <Stethoscope className="mr-1 h-3.5 w-3.5 text-red-500" />
-            মেডিকেল ({students.filter((s) => s.category === "medical").length})
-          </Button>
-          <Button
-            size="sm"
-            variant={activeCategory === "engineering" ? "default" : "outline"}
-            onClick={() => setActiveCategory("engineering")}
-            className="rounded-full text-xs font-semibold"
-          >
-            <Cpu className="mr-1 h-3.5 w-3.5 text-blue-500" />
-            ইঞ্জিনিয়ারিং ({students.filter((s) => s.category === "engineering").length})
-          </Button>
-          <Button
-            size="sm"
-            variant={activeCategory === "university" ? "default" : "outline"}
-            onClick={() => setActiveCategory("university")}
-            className="rounded-full text-xs font-semibold"
-          >
-            <Building2 className="mr-1 h-3.5 w-3.5 text-emerald-500" />
-            পাবলিক ও কৃষি ({students.filter((s) => s.category === "university").length})
-          </Button>
-        </div>
-
-        {/* Students Cards Grid */}
-        <div className="mt-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filteredStudents.map((student, idx) => (
-            <div
-              key={idx}
-              className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-4.5 shadow-xs transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-orange-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-orange-500/50"
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-[#e2e8f0] bg-[#e2e8f0] text-center shadow-xs">
+            {/* Medical */}
+            <button
+              type="button"
+              onClick={() => setSelectedFilter((prev) => (prev === "medical" ? "all" : "medical"))}
+              className={cn(
+                "w-full p-4 sm:p-6 lg:p-7 transition-all flex flex-col items-center justify-center cursor-pointer select-none text-center relative active:scale-[0.98]",
+                selectedFilter === "medical"
+                  ? "bg-[#0D47A1]/8 ring-2 ring-inset ring-[#0D47A1] z-10 shadow-xs"
+                  : "bg-white hover:bg-slate-50/80"
+              )}
+              aria-label="মেডিকেল ভর্তি শিক্ষার্থীদের তালিকা ফিল্টার করুন"
             >
-              <div>
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-900 to-[#0F2C59] font-bold text-white shadow-xs">
-                    {student.name.charAt(0)}
-                  </div>
-                  <Badge
-                    variant={
-                      student.category === "medical"
-                        ? "destructive"
-                        : student.category === "engineering"
-                        ? "navy"
-                        : "success"
-                    }
-                    className="text-[10.5px]"
-                  >
-                    {student.highlight}
-                  </Badge>
-                </div>
-
-                <div className="mt-3">
-                  <h4 className="text-base font-bold text-slate-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-400">
-                    {student.name}
-                  </h4>
-                  <p className="mt-1 text-xs font-semibold text-[#0F2C59] dark:text-blue-300">
-                    {student.institute}
-                  </p>
-                </div>
+              <div className="flex items-center justify-center font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#0D47A1] whitespace-nowrap leading-tight">
+                <NumberTicker value={4} locale="bn-BD" suffix="+" duration={0.8} />
+                <span className="text-base sm:text-xl lg:text-2xl font-bold ml-1 text-[#0D47A1]">মেডিকেল</span>
               </div>
-
-              <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-2.5 text-[11px] text-slate-500 dark:border-slate-800 dark:text-slate-400">
-                <span>সেশন: ২০২৪-২০২৫</span>
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                  সফল অ্যালকেমিস্ট
-                </span>
+              <div className="mt-1.5 text-xs sm:text-sm font-semibold text-[#475569] text-center">
+                যশোর, মাগুরা ও কক্সবাজার
               </div>
-            </div>
-          ))}
-        </div>
+            </button>
 
-        {/* Official Banner Visual Callout & Modal Link */}
-        <div className="mt-12 rounded-3xl border border-orange-200/80 bg-gradient-to-r from-orange-50 via-amber-50 to-blue-50 p-6 sm:p-8 dark:border-slate-800 dark:from-slate-900 dark:via-slate-900/80 dark:to-blue-950/40">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="flex items-center gap-4">
-              <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xl shadow-md sm:h-24 sm:w-36 outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10">
-                <Image
-                  src="/assets/previousstudets.png"
-                  alt="Alchemist 2025 Success Banner"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <span className="text-xs font-bold text-orange-600 dark:text-orange-400">
-                  অফিসিয়াল সাফল্যের ব্যানার
-                </span>
-                <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                  ২০২৫ সালের পূর্ণাঙ্গ পোস্টার ও শিক্ষার্থীদের তালিকা
-                </h4>
-                <p className="text-xs text-slate-600 dark:text-slate-300">
-                  কোচিং প্রাঙ্গণে সংরক্ষিত অফিসিয়াল ফল ও ছবিসমূহ
-                </p>
-              </div>
-            </div>
-
-            <Button
-              onClick={() => setShowBannerModal(true)}
-              className="gap-2 rounded-xl bg-[#0F2C59] ps-4 pe-3.5 text-white hover:bg-blue-900"
+            {/* Engineering */}
+            <button
+              type="button"
+              onClick={() => setSelectedFilter((prev) => (prev === "engineering" ? "all" : "engineering"))}
+              className={cn(
+                "w-full p-4 sm:p-6 lg:p-7 transition-all flex flex-col items-center justify-center cursor-pointer select-none text-center relative active:scale-[0.98]",
+                selectedFilter === "engineering"
+                  ? "bg-[#0288D1]/8 ring-2 ring-inset ring-[#0288D1] z-10 shadow-xs"
+                  : "bg-white hover:bg-slate-50/80"
+              )}
+              aria-label="ইঞ্জিনিয়ারিং শিক্ষার্থীদের তালিকা ফিল্টার করুন"
             >
-              <span>ব্যানারের পূর্ণাঙ্গ ছবি দেখুন</span>
-              <ExternalLink className="h-4 w-4" />
-            </Button>
+              <div className="flex items-center justify-center font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#0288D1] whitespace-nowrap leading-tight">
+                <NumberTicker value={3} locale="bn-BD" suffix="+" duration={0.8} />
+                <span className="text-base sm:text-xl lg:text-2xl font-bold ml-1 text-[#0288D1]">ইঞ্জিনিয়ারিং</span>
+              </div>
+              <div className="mt-1.5 text-xs sm:text-sm font-semibold text-[#475569] text-center">
+                কুয়েট, শাবিপ্রবি ও টেক্সটাইল
+              </div>
+            </button>
+
+            {/* Public Varsity */}
+            <button
+              type="button"
+              onClick={() => setSelectedFilter((prev) => (prev === "university" ? "all" : "university"))}
+              className={cn(
+                "w-full p-4 sm:p-6 lg:p-7 transition-all flex flex-col items-center justify-center cursor-pointer select-none text-center relative active:scale-[0.98]",
+                selectedFilter === "university"
+                  ? "bg-[#0F172A]/8 ring-2 ring-inset ring-[#0F172A] z-10 shadow-xs"
+                  : "bg-white hover:bg-slate-50/80"
+              )}
+              aria-label="পাবলিক বিশ্ববিদ্যালয় শিক্ষার্থীদের তালিকা ফিল্টার করুন"
+            >
+              <div className="flex items-center justify-center font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#0F172A] whitespace-nowrap leading-tight">
+                <NumberTicker value={7} locale="bn-BD" suffix="+" duration={0.9} />
+                <span className="text-base sm:text-xl lg:text-2xl font-bold ml-1 text-[#0F172A]">ভার্সিটি</span>
+              </div>
+              <div className="mt-1.5 text-xs sm:text-sm font-semibold text-[#475569] text-center">
+                জাবি, খুবি, বাকৃবি ও রাবি
+              </div>
+            </button>
+
+            {/* Board Results */}
+            <button
+              type="button"
+              onClick={() => setSelectedFilter("all")}
+              className={cn(
+                "w-full p-4 sm:p-6 lg:p-7 transition-all flex flex-col items-center justify-center cursor-pointer select-none text-center relative active:scale-[0.98]",
+                selectedFilter === "all"
+                  ? "bg-white hover:bg-slate-50/80"
+                  : "bg-white hover:bg-slate-50/80"
+              )}
+              aria-label="সকল কৃতি শিক্ষার্থীদের তালিকা দেখুন"
+            >
+              <div className="flex items-center justify-center font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#E65100] whitespace-nowrap leading-tight">
+                <NumberTicker value={100} locale="bn-BD" suffix="+" duration={1.2} />
+                <span className="text-sm sm:text-lg lg:text-2xl font-bold ml-1 text-[#E65100]">জিপিএ-৫</span>
+              </div>
+              <div className="mt-1.5 text-xs sm:text-sm font-semibold text-[#475569] text-center">
+                রসায়ন A+
+              </div>
+            </button>
           </div>
         </div>
 
-        {/* Fullscreen Banner Modal */}
-        {showBannerModal && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm transition-opacity duration-200 ease-out"
-            onClick={() => setShowBannerModal(false)}
-          >
-            <div
-              className="relative max-h-[90vh] max-w-4xl overflow-hidden rounded-2xl bg-white p-2 shadow-2xl transition-transform duration-200 ease-out dark:bg-slate-900"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative aspect-video w-full max-w-4xl overflow-hidden rounded-xl outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10">
-                <Image
-                  src="/assets/previousstudets.png"
-                  alt="Alchemist 2025 Success Banner Full"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex items-center justify-between p-3 border-t border-slate-200 dark:border-slate-800">
-                <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">
-                  ঠিকানা: এসপি বাংলো গেটের বিপরীতে, আরবপুর, যশোর।
-                </span>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => setShowBannerModal(false)}
+        {/* Filter Controls & Search: Horizontal Swipeable Row on Mobile */}
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 mb-6">
+          {/* Filter Pills */}
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 py-1">
+            {filterOptions.map((filter) => {
+              const active = selectedFilter === filter.value
+              return (
+                <button
+                  key={filter.value}
+                  onClick={() => setSelectedFilter(filter.value)}
+                  className={cn(
+                    "rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer whitespace-nowrap shrink-0 inline-flex items-center gap-1.5 active:scale-[0.96]",
+                    active
+                      ? "bg-[#17171c] text-white shadow-xs"
+                      : "bg-[#f6f5f3] hover:bg-[#eeece7] text-[#17171c] border border-[#d9d9dd]"
+                  )}
                 >
-                  বন্ধ করুন (Close)
-                </Button>
-              </div>
-            </div>
+                  <span>{filter.label}</span>
+                  <span
+                    className={cn(
+                      "text-[10px] px-1.5 py-0.2 rounded-full font-bold",
+                      active ? "bg-white/20 text-white" : "bg-[#eeece7] text-[#75758a]"
+                    )}
+                  >
+                    {filter.count}
+                  </span>
+                </button>
+              )
+            })}
           </div>
-        )}
+
+          {/* Search Input */}
+          <div className="relative w-full md:w-64">
+            <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-[#75758a]" />
+            <input
+              type="text"
+              placeholder="শিক্ষার্থী বা প্রতিষ্ঠানের নাম খুঁজুন..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full rounded-full border border-[#d9d9dd] bg-[#f6f5f3] py-1.5 pl-9 pr-8 text-xs text-[#17171c] placeholder:text-[#93939f] focus:bg-white focus:outline-none focus:border-[#17171c] transition-colors"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2.5 top-2.5 text-[#75758a] hover:text-[#17171c] cursor-pointer"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Mobile View: Elite Scholar Identity List (better-interface compliant) */}
+        <ul
+          role="list"
+          aria-label="কৃতী শিক্ষার্থীদের তালিকা"
+          className="space-y-2.5 block md:hidden"
+        >
+          {filteredStudents.length > 0 ? (
+            filteredStudents.map((student, idx) => {
+              const isMedical = student.category === "medical"
+              const isEngineering = student.category === "engineering"
+              const isUniversity = student.category === "university"
+
+              return (
+                <li
+                  key={idx}
+                  className="rounded-2xl border border-[#e2e8f0] bg-white p-3 sm:p-3.5 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    {/* Concentric Domain Emblem */}
+                    <div
+                      className={cn(
+                        "h-10 w-10 rounded-xl flex items-center justify-center shrink-0 border transition-transform",
+                        isMedical && "bg-rose-50/90 text-rose-700 border-rose-200/70",
+                        isEngineering && "bg-sky-50/90 text-[#0369a1] border-sky-200/70",
+                        isUniversity && "bg-indigo-50/90 text-[#0D47A1] border-indigo-200/70"
+                      )}
+                      aria-hidden="true"
+                    >
+                      {isMedical && <Stethoscope className="h-4 w-4 text-rose-600" />}
+                      {isEngineering && <Cpu className="h-4 w-4 text-[#0369a1]" />}
+                      {isUniversity && <Building2 className="h-4 w-4 text-[#0D47A1]" />}
+                    </div>
+
+                    {/* Student Name, Institution & Meta */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <h4 className="font-display text-[15px] sm:text-base font-bold text-[#0F172A] tracking-tight leading-snug truncate">
+                          {student.name}
+                        </h4>
+                        <span className="text-[11px] font-medium text-[#64748b] shrink-0">
+                          {student.session}
+                        </span>
+                      </div>
+                      <div className="mt-1 flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5 text-xs text-[#475569] font-medium truncate">
+                          <Building2 className="h-3 w-3 text-[#94a3b8] shrink-0" aria-hidden="true" />
+                          <span className="truncate">{student.institute}</span>
+                        </div>
+                        <span
+                          className={cn(
+                            "text-[10px] font-bold px-2 py-0.5 rounded-full border shrink-0",
+                            isMedical && "bg-rose-50 text-rose-700 border-rose-200/80",
+                            isEngineering && "bg-sky-50 text-[#0369a1] border-sky-200/80",
+                            isUniversity && "bg-indigo-50 text-[#0D47A1] border-indigo-200/80"
+                          )}
+                        >
+                          {student.highlight}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              )
+            })
+          ) : (
+            <li className="rounded-2xl border border-[#e2e8f0] bg-[#f8fafc] py-10 text-center text-xs text-[#64748b]">
+              কোনো তথ্য পাওয়া যায়নি। ফিল্টার বা সার্চ পরিবর্তন করে আবার চেষ্টা করুন।
+            </li>
+          )}
+        </ul>
+
+        {/* Desktop View: Cohere Research-Table Format */}
+        <div className="hidden md:block rounded-[22px] border border-[#d9d9dd] bg-white overflow-hidden shadow-xs">
+          {/* Table Header */}
+          <div className="grid grid-cols-12 px-6 py-3.5 bg-[#eeece7]/60 border-b border-[#d9d9dd] text-xs font-bold text-[#17171c]">
+            <div className="col-span-5">শিক্ষার্থীর নাম</div>
+            <div className="col-span-4">ভর্তিকৃত প্রতিষ্ঠান ও অনুষদ</div>
+            <div className="col-span-3 text-right">বিভাগ / ক্যাটাগরি</div>
+          </div>
+
+          {/* Table Rows */}
+          <div className="divide-y divide-[#e5e7eb]">
+            {filteredStudents.length > 0 ? (
+              filteredStudents.map((student, idx) => (
+                <div
+                  key={idx}
+                  className="grid grid-cols-12 px-6 py-4 items-center hover:bg-[#fcfbf9] transition-colors"
+                >
+                  <div className="col-span-5 flex items-center gap-3">
+                    <div
+                      className={cn(
+                        "h-8 w-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0 border",
+                        student.category === "medical" && "bg-rose-50 text-rose-700 border-rose-200",
+                        student.category === "engineering" && "bg-emerald-50 text-emerald-800 border-emerald-200",
+                        student.category === "university" && "bg-indigo-50 text-indigo-700 border-indigo-200"
+                      )}
+                    >
+                      {student.name.slice(0, 1)}
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm text-[#17171c]">
+                        {student.name}
+                      </div>
+                      <div className="text-[11px] text-[#75758a]">
+                        {student.session} • আলকেমিস্ট কেয়ার
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-span-4">
+                    <span className="font-semibold text-xs text-[#17171c] bg-[#f6f5f3] px-2.5 py-1 rounded-md border border-[#e5e7eb]">
+                      {student.institute}
+                    </span>
+                  </div>
+
+                  <div className="col-span-3 text-right flex items-center justify-end gap-2">
+                    <Badge
+                      variant={
+                        student.category === "medical"
+                          ? "coral"
+                          : student.category === "engineering"
+                          ? "green"
+                          : "navy"
+                      }
+                      className="text-xs"
+                    >
+                      {student.highlight}
+                    </Badge>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="py-12 text-center text-xs text-[#75758a]">
+                কোনো তথ্য পাওয়া যায়নি। ফিল্টার বা সার্চ পরিবর্তন করে আবার চেষ্টা করুন।
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   )
 }
+

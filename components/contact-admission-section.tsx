@@ -6,335 +6,305 @@ import {
   Phone,
   MessageCircle,
   Clock,
-  Sparkles,
   CheckCircle2,
-  Calendar,
-  Building,
-  Navigation,
-  ArrowRight,
-  ShieldCheck,
   HelpCircle,
+  Sparkles,
+  Navigation,
+  Compass,
+  ExternalLink,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+
+const faqs = [
+  {
+    q: "ক্লাস মিস হলে ব্যাকআপ ক্লাসের ব্যবস্থা আছে কি?",
+    a: "হ্যাঁ, কোনো শিক্ষার্থী অসুস্থতা বা জরুরি কারণে ক্লাস মিস করলে নয়ন স্যারের সরাসরি তত্ত্বাবধানে ব্যাকআপ ক্লাস এবং ডিজিটাল স্মার্টবোর্ডের রেকর্ডেড লেকচার ও ক্লাস নোট প্রদান করা হয়।",
+  },
+  {
+    q: "এইচএসসি ২০২৭ ও ২০২৮ ব্যাচে ভর্তির যোগ্যতা ও নিয়ম কী?",
+    a: "বিজ্ঞান বিভাগের যেকোনো শিক্ষার্থী ভর্তি হতে পারবে। শুরুতে কোনো ভর্তি পরীক্ষার প্রয়োজন নেই, তবে নিয়মিত ক্লাসে উপস্থিতি ও সাপ্তাহিক অধ্যায়ভিত্তিক পরীক্ষায় অংশগ্রহণ বাধ্যতামূলক।",
+  },
+  {
+    q: "অনার্স কেমিস্ট্রি কেয়ারে কোন কোন বর্ষের পাঠদান করা হয়?",
+    a: "জাতীয় বিশ্ববিদ্যালয় ও অন্যান্য অধিভুক্ত কলেজের রসায়ন বিভাগের ডিগ্রি ও অনার্স ১ম, ২য় ও ৩য় বর্ষের ফিজিক্যাল, অর্গানিক ও ইনঅর্গানিক কেমিস্ট্রির বিশেষ ব্যাচ পরিচালিত হয়।",
+  },
+  {
+    q: "অভিভাবকদের কীভাবে অগ্রগতি জানানো হয়?",
+    a: "প্রতিটি অধ্যায়ভিত্তিক পরীক্ষা শেষে নম্বর ও ক্লাসের উপস্থিতি এসএমএস ও ফোনের মাধ্যমে সরাসরি অভিভাবকদের জানানো হয়। প্রতি মাসে অভিভাবক মতবিনিময়ের ব্যবস্থাও রয়েছে।",
+  },
+]
 
 export function ContactAdmissionSection() {
   const whatsappUrl =
     "https://wa.me/8801780616187?text=" +
     encodeURIComponent(
-      "আসসালামু আলাইকুম নয়ন স্যার! আমি আলকেমিস্ট কেমিস্ট্রি কেয়ারে ব্যাচ এবং ভর্তি প্রক্রিয়া সম্পর্কে বিস্তারিত জানতে আগ্রহী।"
+      "আসসালামু আলাইকুম নয়ন স্যার! আমি আলকেমিস্ট কেমিস্ট্রি কেয়ারে ব্যাচ এবং ভর্তি প্রক্রিয়া সম্পর্কে জানতে আগ্রহী।"
     )
 
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-slate-50/70 py-20 dark:bg-[#081026]"
+      className="relative bg-white py-20 md:py-28 border-b border-[#e2e8f0]"
     >
+      {/* Background ambient technical grid glow */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/4 -right-24 h-96 w-96 rounded-full bg-[#0D47A1]/5 blur-3xl" />
+        <div className="absolute bottom-10 -left-20 h-96 w-96 rounded-full bg-[#F57C00]/5 blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: `radial-gradient(#0D47A1 1px, transparent 1px)`,
+            backgroundSize: "24px 24px",
+          }}
+        />
+      </div>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center">
-          <Badge
-            variant="alchemist"
-            className="mb-3 gap-1.5 px-3.5 py-1 text-xs font-semibold"
-          >
-            <MapPin className="h-3.5 w-3.5 text-orange-500" />
-            <span>ভর্তি ও যোগাযোগ (Admission & Contact)</span>
-          </Badge>
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            আজই আপনার পছন্দের ব্যাচে সিট নিশ্চিত করুন
+        {/* Section Header (Technical Editorial Style) */}
+        <div className="flex flex-col items-start max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB74D] bg-[#FFF3E0] px-3.5 py-1 text-xs font-bold text-[#E65100] mb-3.5">
+            <MapPin className="h-3.5 w-3.5 text-[#F57C00]" />
+            <span>সরাসরি যোগাযোগ ও ক্যাম্পাস পরিদর্শন</span>
+          </div>
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl leading-[1.18]">
+            ক্যাম্পাসে আসুন অথবা সরাসরি ফোনে কথা বলুন
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm font-medium text-slate-600 sm:text-base dark:text-slate-300">
-            সীমিত আসন সংখ্যা। সরাসরি কোচিং সেন্টারে এসে অথবা নয়ন স্যারের অফিসিয়াল ফোন ও হোয়াটসঅ্যাপে যোগাযোগ করে আপনার সিট বুক করুন।
+          <p className="mt-4 text-base text-[#475569] leading-relaxed">
+            সীমিত আসন সংখ্যা। সরাসরি কোচিং সেন্টারে এসে অথবা নয়ন স্যারের অফিশিয়াল নম্বরে কল করে আপনার পছন্দের ব্যাচে আসন নিশ্চিত করুন।
           </p>
         </div>
 
-        {/* Special Discount Banner */}
-        <div className="mt-8 mx-auto max-w-3xl rounded-2xl border border-orange-300 bg-gradient-to-r from-orange-500 to-amber-500 p-4 text-center text-white shadow-lg">
-          <div className="flex flex-col items-center justify-center gap-1.5 sm:flex-row sm:gap-3">
-            <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
-              বিশেষ অফার
-            </span>
-            <p className="text-sm font-bold sm:text-base">
-              🎉 নতুন ব্যাচে ভর্তিতে সীমিত সময়ের জন্য বিশেষ ছাড় চলছে!
-            </p>
-          </div>
-        </div>
+        {/* Technical Blueprint Grid (Campus & Admission Hub) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-16">
+          {/* Card 1: Campus Identity & Location Architecture */}
+          <div className="relative flex flex-col h-full">
+            {/* Cloudflare-style corner anchor nodes */}
+            <span className="absolute -top-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -top-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
 
-        {/* Contact & Admission Grid */}
-        <div className="mt-12 grid gap-8 lg:grid-cols-12">
-          {/* Col 1: Direct Contact & Hotline (5 cols) */}
-          <div className="flex flex-col gap-6 lg:col-span-6">
-            {/* Primary Hotline & WhatsApp Card */}
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition-[box-shadow,border-color] duration-200 ease-out hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-8">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 dark:bg-orange-950 dark:text-orange-400">
-                  <Phone className="h-6 w-6" />
-                </div>
+            {/* Container with Hairline Dividers */}
+            <div className="border border-[#e2e8f0] bg-white divide-y divide-[#e2e8f0] shadow-xs flex-1 flex flex-col">
+              {/* Header block */}
+              <div className="p-6 sm:p-8 bg-[#F8FAFC]/50 flex items-center justify-between gap-4">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                    সরাসরি যোগাযোগ ও হটলাইন
-                  </h3>
-                  <span className="text-xs font-semibold text-orange-600 dark:text-orange-400">
-                    নয়ন স্যারের অফিসিয়াল যোগাযোগ মাধ্যম
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#0D47A1] bg-[#F0F7FF] px-2.5 py-0.5 border border-[#0D47A1]/20 inline-block mb-1.5">
+                    অফিসিয়াল ক্যাম্পাস
                   </span>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
+                    আলকেমিস্ট কেমিস্ট্রি কেয়ার, যশোর
+                  </h3>
+                </div>
+                <div className="h-11 w-11 shrink-0 rounded-lg border border-[#e2e8f0] bg-white text-[#0D47A1] flex items-center justify-center shadow-2xs">
+                  <MapPin className="h-5 w-5 stroke-[2.2]" />
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-300">
-                {/* Phone */}
-                <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-4 dark:border-slate-800/80 dark:bg-slate-800/50">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-[#0F2C59] dark:bg-blue-950 dark:text-blue-300">
-                        <Phone className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <span className="text-xs text-slate-500 dark:text-slate-400">
-                          অফিসিয়াল হটলাইন নম্বর
-                        </span>
-                        <a
-                          href="tel:+8801780616187"
-                          className="block text-lg font-extrabold text-[#0F2C59] hover:underline dark:text-blue-300"
-                        >
-                          +880 1780-616187
-                        </a>
-                      </div>
-                    </div>
-                    <a href="tel:+8801780616187">
-                      <Button
-                        size="sm"
-                        className="gap-1.5 rounded-xl bg-[#0F2C59] ps-3 pe-3.5 text-white hover:bg-[#1e3a6d]"
-                      >
-                        <Phone className="h-3.5 w-3.5" />
-                        <span>কল দিন</span>
-                      </Button>
-                    </a>
+              {/* Item: Campus Location */}
+              <div className="p-6 sm:p-8 transition-colors duration-150 hover:bg-[#F8FAFC]">
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#e2e8f0] bg-white text-[#F57C00] shadow-2xs mt-0.5">
+                    <Navigation className="h-5 w-5 stroke-[2.2]" />
                   </div>
-                </div>
-
-                {/* WhatsApp */}
-                <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-4 dark:border-slate-800/80 dark:bg-slate-800/50">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
-                        <MessageCircle className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <span className="text-xs text-slate-500 dark:text-slate-400">
-                          হোয়াটসঅ্যাপে সরাসরি মেসেজ
-                        </span>
-                        <a
-                          href={whatsappUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block text-base font-bold text-emerald-600 hover:underline dark:text-emerald-400"
-                        >
-                          ০১৭৮০-৬১৬১৮৭
-                        </a>
-                      </div>
-                    </div>
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button
-                        size="sm"
-                        className="gap-1.5 rounded-xl bg-emerald-600 ps-3 pe-3.5 text-white hover:bg-emerald-700"
-                      >
-                        <MessageCircle className="h-3.5 w-3.5" />
-                        <span>চ্যাট করুন</span>
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Office Hours */}
-                <div className="flex items-start gap-3 pt-2">
-                  <Clock className="mt-0.5 h-5 w-5 shrink-0 text-orange-500" />
                   <div>
-                    <strong className="block text-slate-900 dark:text-white">
-                      অফিস খোলা থাকার সময়:
-                    </strong>
-                    <span>সকাল ৭:০০ টা থেকে রাত ৮:০০ টা (সপ্তাহের ৭ দিনই খোলা)</span>
+                    <div className="text-xs font-bold text-[#64748b] uppercase tracking-wide">
+                      ক্যাম্পাস অবস্থান ও ঠিকানা
+                    </div>
+                    <div className="font-display text-lg sm:text-xl font-bold text-[#0F172A] mt-1 leading-snug">
+                      এসপি বাংলো গেটের বিপরীতে, আরবপুর, যশোর
+                    </div>
+                    <p className="mt-2 text-sm text-[#475569] leading-relaxed">
+                      মূল সড়কসংলগ্ন ভবনের ২য় তলা, আলকেমিস্ট স্মার্ট ক্লাসরুম (যশোর শহরের আরবপুর মোড়ে এসপি বাংলো গেটের ঠিক উল্টো পাশে)।
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* Big Action Buttons */}
-              <div className="mt-6 grid grid-cols-2 gap-3">
+              {/* Item: Operating Hours */}
+              <div className="p-6 sm:p-8 transition-colors duration-150 hover:bg-[#F8FAFC]">
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#e2e8f0] bg-white text-[#0288D1] shadow-2xs mt-0.5">
+                    <Clock className="h-5 w-5 stroke-[2.2]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className="text-xs font-bold text-[#64748b] uppercase tracking-wide">
+                        অফিস ও ক্লাসরুম খোলা
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 border border-emerald-200">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        সার্বক্ষণিক উন্মুক্ত
+                      </span>
+                    </div>
+                    <div className="font-display text-lg sm:text-xl font-bold text-[#0F172A] mt-1">
+                      প্রতিদিন সকাল ৭:০০ টা হতে রাত ৯:০০ টা পর্যন্ত
+                    </div>
+                    <p className="mt-2 text-sm text-[#475569] leading-relaxed">
+                      অভিভাবক ও শিক্ষার্থীরা যেকোনো দিন সরাসরি এসে ক্লাসরুম পরিবেশ পরিদর্শন ও নয়ন স্যারের সাথে আলোচনা করতে পারেন।
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer item: Navigation action */}
+              <div className="p-6 sm:p-8 mt-auto bg-[#F8FAFC]/40">
+                <a
+                  href="https://maps.google.com/?q=Arabpur,+Jashore,+Bangladesh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#0D47A1]/20 bg-[#F0F7FF] px-4 py-3 text-sm font-bold text-[#0D47A1] hover:bg-[#0D47A1] hover:text-white transition-all duration-150 active:scale-[0.98] shadow-2xs"
+                >
+                  <Compass className="h-4 w-4" />
+                  <span>গুগল ম্যাপে লোকেশন ও ডিরেকশন দেখুন</span>
+                  <ExternalLink className="h-3.5 w-3.5 ml-1 opacity-70" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Direct Admission Desk & Helpline Architecture */}
+          <div className="relative flex flex-col h-full">
+            {/* Cloudflare-style corner anchor nodes */}
+            <span className="absolute -top-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -top-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2.5 w-2.5 border border-[#0D47A1]/40 bg-white" />
+
+            {/* Container with Hairline Dividers */}
+            <div className="border border-[#e2e8f0] bg-white divide-y divide-[#e2e8f0] shadow-xs flex-1 flex flex-col">
+              {/* Header block */}
+              <div className="p-6 sm:p-8 bg-[#F8FAFC]/50 flex items-center justify-between gap-4">
+                <div>
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#E65100] bg-[#FFF3E0] px-2.5 py-0.5 border border-[#FFB74D]/30 inline-block mb-1.5">
+                    সরাসরি ভর্তি সহায়তা
+                  </span>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
+                    ভর্তি সংক্রান্ত পরামর্শে কথা বলুন
+                  </h3>
+                </div>
+                <div className="h-11 w-11 shrink-0 rounded-lg border border-[#e2e8f0] bg-white text-[#E65100] flex items-center justify-center shadow-2xs">
+                  <Sparkles className="h-5 w-5 stroke-[2.2] text-[#F57C00]" />
+                </div>
+              </div>
+
+              {/* Item: Hotline & Contact Details */}
+              <div className="p-6 sm:p-8 transition-colors duration-150 hover:bg-[#F8FAFC]">
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#e2e8f0] bg-white text-[#0D47A1] shadow-2xs mt-0.5">
+                    <Phone className="h-5 w-5 stroke-[2.2]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className="text-xs font-bold text-[#64748b] uppercase tracking-wide">
+                        অফিশিয়াল হেল্পলাইন
+                      </div>
+                      <span className="font-mono text-[11px] font-semibold bg-[#F0F7FF] text-[#0D47A1] px-2.5 py-0.5 border border-[#0D47A1]/20">
+                        সরাসরি শিক্ষক লাইন
+                      </span>
+                    </div>
+                    <div className="font-display text-2xl sm:text-3xl font-black text-[#0F172A] mt-1 font-mono tracking-tight">
+                      ০১৭৮০-৬১৬১৮৭
+                    </div>
+                    <p className="mt-2 text-sm text-[#475569] leading-relaxed">
+                      ব্যাচের আসন সংখ্যা ও সময়সূচি নিশ্চিত করতে নয়ন স্যারের সাথে সরাসরি যোগাযোগ করুন।
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Item: Tactile Action Buttons */}
+              <div className="p-6 sm:p-8 space-y-3">
+                <a href="tel:01780616187" className="block w-full">
+                  <Button
+                    size="lg"
+                    className="w-full gap-2.5 rounded-lg bg-[#0D47A1] hover:bg-[#0B3D91] text-white py-3.5 text-sm font-bold shadow-xs active:scale-[0.98] transition-all"
+                  >
+                    <Phone className="h-4 w-4 text-[#FFB74D]" />
+                    <span>সরাসরি কল দিন: ০১৭৮০-৬১৬১৮৭</span>
+                  </Button>
+                </a>
+
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full"
-                >
-                  <Button className="w-full gap-2 rounded-xl bg-emerald-600 text-sm font-bold text-white hover:bg-emerald-700">
-                    <MessageCircle className="h-4 w-4" />
-                    <span>WhatsApp মেসেজ</span>
-                  </Button>
-                </a>
-                <a href="tel:+8801780616187" className="w-full">
-                  <Button
-                    variant="outline"
-                    className="w-full gap-2 rounded-xl border-blue-900/30 font-bold text-[#0F2C59] hover:bg-blue-50 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-blue-950/40"
-                  >
-                    <Phone className="h-4 w-4 text-orange-500" />
-                    <span>সরাসরি কল</span>
-                  </Button>
-                </a>
-              </div>
-            </div>
-
-            {/* Address & Navigation Card */}
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-7">
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 dark:bg-orange-950 dark:text-orange-400">
-                  <Building className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="text-base font-bold text-slate-900 dark:text-white">
-                    কোচিং সেন্টারের ঠিকানা (যশোর শাখা)
-                  </h4>
-                  <p className="text-xs text-slate-500">
-                    সরাসরি অফিসে এসে ভিজিট করুন
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4 flex items-start gap-3 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700 dark:bg-slate-800/60 dark:text-slate-200">
-                <MapPin className="mt-1 h-5 w-5 shrink-0 text-orange-500" />
-                <div className="leading-relaxed">
-                  <strong className="block text-slate-900 dark:text-white">
-                    এসপি বাংলো গেটের বিপরীতে, আরবপুর, যশোর।
-                  </strong>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">
-                    ল্যান্ডমার্ক: আরবপুর মোড় থেকে যশোর শহরমুখী রাস্তায় এসপি বাংলোর ঠিক উল্টো দিকে।
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-                  গুগল ম্যাপে দিকনির্দেশনা চান?
-                </span>
-                <a
-                  href="https://maps.google.com/?q=Arabpur,Jessore,Bangladesh"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  className="block w-full"
                 >
                   <Button
-                    size="sm"
+                    size="lg"
                     variant="outline"
-                    className="gap-1.5 rounded-xl border-orange-200 text-orange-600 hover:bg-orange-50 dark:border-orange-800 dark:text-orange-400"
+                    className="w-full gap-2.5 rounded-lg border border-emerald-600/30 bg-emerald-50/50 hover:bg-emerald-100/70 text-emerald-800 hover:border-emerald-600 py-3.5 text-sm font-bold active:scale-[0.98] transition-all"
                   >
-                    <Navigation className="h-3.5 w-3.5" />
-                    <span>ম্যাপ ওপেন করুন</span>
+                    <MessageCircle className="h-4 w-4 text-emerald-600" />
+                    <span>WhatsApp-এ মেসেজ পাঠান</span>
                   </Button>
                 </a>
+              </div>
+
+              {/* Footer item: Trust note */}
+              <div className="p-4 sm:p-5 mt-auto bg-[#F8FAFC]/60 text-xs text-[#64748b] flex items-center justify-center gap-2 border-t border-[#e2e8f0]">
+                <CheckCircle2 className="h-4 w-4 text-[#0D47A1] shrink-0" />
+                <span className="font-medium">অভিভাবক ও শিক্ষার্থীদের সরাসরি নয়ন স্যারের সাথে কথা বলার নিশ্চয়তা</span>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Col 2: How Admission Works (4 Easy Steps) & Guidelines (6 cols) */}
-          <div className="flex flex-col gap-6 lg:col-span-6">
-            <div className="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-8">
-              <div>
-                <div className="flex items-center gap-2">
-                  <Badge
-                    variant="outline"
-                    className="border-orange-300 text-orange-600 dark:border-orange-800 dark:text-orange-400 text-[11px]"
+        {/* Frequently Asked Questions (Technical Blueprint Style) */}
+        <div className="pt-8">
+          <div className="max-w-2xl mb-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#e2e8f0] bg-[#F8FAFC] px-3.5 py-1 text-xs font-bold text-[#475569] mb-3">
+              <HelpCircle className="h-3.5 w-3.5 text-[#F57C00]" />
+              <span>সাধারণ জিজ্ঞাসা</span>
+            </div>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#0F172A] tracking-tight">
+              সচরাচর জানতে চাওয়া প্রশ্নসমূহ
+            </h3>
+            <p className="text-sm text-[#64748b] mt-1.5 leading-relaxed">
+              ভর্তি ও ব্যাচ সংক্রান্ত সাধারণ প্রশ্নগুলোর স্পষ্ট উত্তর।
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Blueprint corner anchor nodes */}
+            <span className="absolute -top-1.5 -left-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -top-1.5 -right-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -left-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
+            <span className="absolute -bottom-1.5 -right-1.5 z-10 h-2 w-2 border border-[#0D47A1]/40 bg-white" />
+
+            <div className="border border-[#e2e8f0] bg-white divide-y divide-[#e2e8f0] shadow-xs">
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#e2e8f0]">
+                {faqs.slice(0, 2).map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 sm:p-7 transition-colors duration-150 hover:bg-[#F8FAFC]"
                   >
-                    ভর্তি প্রক্রিয়া
-                  </Badge>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">
-                    সহজ ৪টি ধাপে সম্পন্ন করুন
-                  </span>
-                </div>
-                <h3 className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
-                  ভর্তি হওয়ার সহজ নিয়মাবলী
-                </h3>
-                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                  আলকেমিস্ট কেমিস্ট্রি কেয়ারে প্রতিটি ব্যাচে সীমিত আসন থাকায় দ্রুত যোগাযোগ করার অনুরোধ করা হচ্ছে।
-                </p>
-
-                {/* Steps */}
-                <div className="mt-6 flex flex-col gap-4">
-                  {/* Step 1 */}
-                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-600 font-extrabold text-white text-sm">
-                      ১
+                    <div className="font-bold text-base text-[#0F172A] mb-2.5 flex items-start gap-2.5">
+                      <HelpCircle className="h-4.5 w-4.5 text-[#F57C00] shrink-0 mt-0.5" />
+                      <span>{faq.q}</span>
                     </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                        ব্যাচ নির্বাচন ও সিট খোঁজ নিন
-                      </h4>
-                      <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300">
-                        আপনার উপযুক্ত ব্যাচ (HSC 2027 / HSC 2028 / অনার্স) নির্বাচন করুন এবং হটলাইনে ফোন দিয়ে আসন খালি আছে কিনা নিশ্চিত হন।
-                      </p>
-                    </div>
+                    <p className="text-sm text-[#475569] leading-relaxed pl-7">
+                      {faq.a}
+                    </p>
                   </div>
-
-                  {/* Step 2 */}
-                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#0F2C59] font-extrabold text-white text-sm dark:bg-blue-700">
-                      ২
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                        সরাসরি কোচিং অফিসে আসুন
-                      </h4>
-                      <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300">
-                        যশোরের আরবপুর এসপি বাংলো গেটের বিপরীতে আলকেমিস্ট অফিসে এসে ক্লাস রুমের পরিবেশ ও লেকচার শিট দেখে নিন।
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Step 3 */}
-                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-600 font-extrabold text-white text-sm">
-                      ৩
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                        অফিস ফরম পূরণ ও ভর্তি নিশ্চিত
-                      </h4>
-                      <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300">
-                        অফিস থেকে ভর্তি ফরম সংগ্রহ করে প্রয়োজনীয় তথ্য দিয়ে ভর্তি ফি জমা দিন এবং আপনার রোল নম্বর বুঝে নিন।
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Step 4 */}
-                  <div className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition-[background-color,border-color] duration-150 ease-out hover:bg-slate-50 dark:border-slate-800/80 dark:bg-slate-800/40">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500 font-extrabold text-white text-sm">
-                      ৪
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                        ক্লাসে যোগদান ও কেমিস্ট্রিতে সেরা প্রস্তুতি
-                      </h4>
-                      <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300">
-                        শিডিউল অনুযায়ী ক্লাসে যোগদান করে নিয়মিত পরীক্ষা এবং নয়ন স্যারের নিবিড় তত্ত্বাবধানে প্রস্তুতি এগিয়ে নিন।
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
-
-              {/* Quick Call Out Banner */}
-              <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4 dark:border-emerald-900/50 dark:bg-emerald-950/40">
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="h-6 w-6 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                  <div className="text-xs text-emerald-900 dark:text-emerald-200">
-                    <strong className="block font-bold">
-                      অভিভাবকদের প্রতি আশ্বাস
-                    </strong>
-                    <span>
-                      শিক্ষার্থীর নিয়মিত উপস্থিতি ও পরীক্ষার ফলাফল প্রতি মাসে অভিভাবকদের মোবাইলে অবহিত করা হয়।
-                    </span>
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#e2e8f0]">
+                {faqs.slice(2, 4).map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 sm:p-7 transition-colors duration-150 hover:bg-[#F8FAFC]"
+                  >
+                    <div className="font-bold text-base text-[#0F172A] mb-2.5 flex items-start gap-2.5">
+                      <HelpCircle className="h-4.5 w-4.5 text-[#F57C00] shrink-0 mt-0.5" />
+                      <span>{faq.q}</span>
+                    </div>
+                    <p className="text-sm text-[#475569] leading-relaxed pl-7">
+                      {faq.a}
+                    </p>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

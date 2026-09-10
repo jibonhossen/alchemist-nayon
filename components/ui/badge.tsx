@@ -3,23 +3,33 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-[color,background-color,border-color] duration-150 ease-out select-none",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
+          "border-transparent bg-[#17171c] text-white shadow-2xs hover:bg-black",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "border-[#d9d9dd] bg-[#eeece7] text-[#212121]",
         destructive:
-          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        outline: "text-foreground",
+          "border-transparent bg-[#b30000]/10 text-[#b30000] border-[#b30000]/20",
+        outline: "border-[#d9d9dd] text-[#212121] bg-[#ffffff]",
+        coral:
+          "border-[#ffad9b] bg-[#fff4f1] text-[#ff7759] font-semibold",
         alchemist:
-          "border-orange-500/30 bg-orange-500/10 text-orange-600 dark:text-orange-400 border",
+          "border-[#ffad9b] bg-[#fff4f1] text-[#ff7759] font-semibold",
+        green:
+          "border-[#003c33]/20 bg-[#edfce9] text-[#003c33] font-semibold",
+        stone:
+          "border-[#d9d9dd] bg-[#eeece7] text-[#17171c]",
         navy:
-          "border-blue-900/30 bg-blue-950/10 text-blue-900 dark:text-blue-300 border",
+          "border-[#071829]/20 bg-[#f1f5ff] text-[#071829] font-semibold",
         success:
-          "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border",
+          "border-[#003c33]/20 bg-[#edfce9] text-[#003c33] font-semibold",
+        amber:
+          "border-amber-400/40 bg-amber-50 text-amber-900 font-semibold",
+        purple:
+          "border-purple-300 bg-purple-50 text-purple-900 font-semibold",
       },
     },
     defaultVariants: {
@@ -34,7 +44,11 @@ export interface BadgeProps
 
 function Badge({ className, variant, ...props }: BadgeProps) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <div
+      data-slot="badge"
+      className={cn(badgeVariants({ variant }), className)}
+      {...props}
+    />
   )
 }
 
