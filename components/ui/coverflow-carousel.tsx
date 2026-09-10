@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { useReducedMotion } from "motion/react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -94,16 +95,8 @@ export function CoverflowCarousel({
     [count],
   )
 
-  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(false)
-
-  React.useEffect(() => {
-    if (typeof window === "undefined") return
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
-    setPrefersReducedMotion(mq.matches)
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
-    mq.addEventListener("change", handler)
-    return () => mq.removeEventListener("change", handler)
-  }, [])
+  // Subscribes to the media query itself, so no setState-in-effect is needed.
+  const prefersReducedMotion = useReducedMotion() ?? false
 
   // Paint straight to the DOM for 60fps hardware performance
   const paint = React.useCallback(() => {

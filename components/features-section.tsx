@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   FileCheck,
   Atom,
-  Layers,
   Sparkles,
 } from "lucide-react"
 

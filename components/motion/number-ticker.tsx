@@ -1,7 +1,7 @@
 "use client";
 
 import { animate, motion, useInView, useReducedMotion } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn, toBanglaNumber } from "@/lib/utils";
 
@@ -52,13 +52,7 @@ export function NumberTicker({
 }: NumberTickerProps) {
   const containerRef = useRef<HTMLSpanElement>(null);
   const inView = useInView(containerRef, { once: true, amount: 0.1 });
-  const [armed, setArmed] = useState(!startOnView);
-
-  useEffect(() => {
-    if (startOnView && inView) {
-      setArmed(true);
-    }
-  }, [startOnView, inView]);
+  const armed = !startOnView || inView;
 
   const text = useMemo(() => {
     const rounded = Math.round(value);

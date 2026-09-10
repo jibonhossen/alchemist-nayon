@@ -28,15 +28,24 @@ export function AnimatedNumber({
 
   useEffect(() => {
     if (startOnView && !inView) return;
+
+    // Reduced motion jumps straight to the value. The rAF is what keeps that
+    // setState out of the effect body, which would otherwise cascade renders.
     if (reduce) {
-      fromRef.current = value;
-      setDisplay(value);
-      return;
+      const raf = requestAnimationFrame(() => {
+        fromRef.current = value;
+        setDisplay(value);
+      });
+      return () => cancelAnimationFrame(raf);
     }
+
     const controls = animate(fromRef.current, value, {
       duration,
       ease: EASE_OUT,
-      onUpdate: (v) => setDisplay(v),
+      onUpdate: (v) => {
+        fromRef.current = v;
+        setDisplay(v);
+      },
     });
     fromRef.current = value;
     return () => controls.stop();

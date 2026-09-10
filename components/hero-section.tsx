@@ -2,8 +2,6 @@
 
 import * as React from "react"
 import { NumberTicker } from "@/components/motion/number-ticker"
-import { toBanglaNumber } from "@/lib/utils"
-
 
 export function HeroSection() {
   return (

@@ -6,7 +6,6 @@ import {
   Building2,
   Search,
   X,
-  CheckCircle2,
   Stethoscope,
   Cpu,
 } from "lucide-react"
